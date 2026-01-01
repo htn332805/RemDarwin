@@ -1,0 +1,76 @@
+{
+  "family": "mycfatool-app",
+  "taskRoleArn": "arn:aws:iam::123456789012:role/mycfatool-ecs-task-role",
+  "executionRoleArn": "arn:aws:iam::123456789012:role/mycfatool-ecs-execution-role",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "1024",
+  "memory": "2048",
+  "containerDefinitions": [
+    {
+      "name": "mycfatool-app",
+      "image": "123456789012.dkr.ecr.us-east-1.amazonaws.com/mycfatool:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8050,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "FLASK_ENV",
+          "value": "production"
+        },
+        {
+          "name": "REDIS_URL",
+          "value": "redis://mycfatool-redis:6379/0"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "DATABASE_URL",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:123456789012:secret:mycfatool/db-url"
+        },
+        {
+          "name": "SECRET_KEY",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:123456789012:secret:mycfatool/secret-key"
+        },
+        {
+          "name": "FMP_API_KEY",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:123456789012:secret:mycfatool/fmp-api-key"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/mycfatool-app",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "curl -f http://localhost:8050/ || exit 1"
+        ],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 60
+      }
+    }
+  ],
+  "tags": [
+    {
+      "key": "Environment",
+      "value": "production"
+    },
+    {
+      "key": "Application",
+      "value": "MyCFATool"
+    }
+  ]
+}

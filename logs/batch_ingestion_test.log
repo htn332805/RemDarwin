@@ -1,0 +1,435 @@
+2026-01-01 10:56:13,291 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/sp500_constituent with params {'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:13,839 - MyCFATool.ingestion.fmp_client - INFO - Request successful for sp500_constituent
+2026-01-01 10:56:13,842 - __main__ - INFO - Starting batch ingestion test for 10 tickers: ['CRH', 'CVNA', 'FIX', 'ARES', 'SNDK', 'Q', 'APP', 'EME', 'HOOD', 'IBKR']
+2026-01-01 10:56:13,848 - MyCFATool.domain.services.data_ingestion_service - INFO - Starting batch ingestion for CRH
+2026-01-01 10:56:13,849 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/CRH with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:14,712 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/CRH
+2026-01-01 10:56:14,759 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for CRH annual: added 36, skipped 0
+2026-01-01 10:56:14,759 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for CRH annual: added 36, skipped 0
+2026-01-01 10:56:14,759 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/CRH with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:15,220 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/CRH
+2026-01-01 10:56:15,246 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for CRH annual: added 36, skipped 0
+2026-01-01 10:56:15,246 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for CRH annual: added 36, skipped 0
+2026-01-01 10:56:15,247 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/CRH with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:15,636 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/CRH
+2026-01-01 10:56:15,668 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for CRH annual: added 36, skipped 0
+2026-01-01 10:56:15,668 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for CRH annual: added 36, skipped 0
+2026-01-01 10:56:15,668 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/CRH with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:16,096 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/CRH
+2026-01-01 10:56:16,150 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for CRH quarterly: added 115, skipped 0
+2026-01-01 10:56:16,150 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for CRH quarterly: added 115, skipped 0
+2026-01-01 10:56:16,150 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/CRH with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:16,692 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/CRH
+2026-01-01 10:56:16,726 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for CRH quarterly: added 68, skipped 0
+2026-01-01 10:56:16,726 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for CRH quarterly: added 68, skipped 0
+2026-01-01 10:56:16,726 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/CRH with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:17,142 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/CRH
+2026-01-01 10:56:17,174 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for CRH quarterly: added 33, skipped 0
+2026-01-01 10:56:17,174 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for CRH quarterly: added 33, skipped 0
+2026-01-01 10:56:17,174 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/CRH with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:17,723 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/CRH
+2026-01-01 10:56:17,747 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for CRH annual: added 36, skipped 0
+2026-01-01 10:56:17,747 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for CRH annual: added 36, skipped 0
+2026-01-01 10:56:17,747 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/CRH with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:18,269 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/CRH
+2026-01-01 10:56:18,310 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for CRH quarterly: added 118, skipped 0
+2026-01-01 10:56:18,310 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for CRH quarterly: added 118, skipped 0
+2026-01-01 10:56:18,310 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/historical-price-full/CRH with params {'timeseries': 365, 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:18,859 - MyCFATool.ingestion.fmp_client - INFO - Request successful for historical-price-full/CRH
+2026-01-01 10:56:18,958 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for CRH: added 365, skipped 0
+2026-01-01 10:56:18,958 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for CRH: added 365, skipped 0
+2026-01-01 10:56:18,958 - MyCFATool.domain.services.data_ingestion_service - INFO - Completed ingestion for CRH
+2026-01-01 10:56:18,958 - MyCFATool.domain.services.data_ingestion_service - INFO - Successfully ingested data for CRH
+2026-01-01 10:56:18,958 - MyCFATool.domain.services.data_ingestion_service - INFO - Starting batch ingestion for CVNA
+2026-01-01 10:56:18,958 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/CVNA with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:19,288 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/CVNA
+2026-01-01 10:56:19,310 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for CVNA annual: added 11, skipped 0
+2026-01-01 10:56:19,310 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for CVNA annual: added 11, skipped 0
+2026-01-01 10:56:19,310 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/CVNA with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:19,750 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/CVNA
+2026-01-01 10:56:19,766 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for CVNA annual: added 11, skipped 0
+2026-01-01 10:56:19,766 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for CVNA annual: added 11, skipped 0
+2026-01-01 10:56:19,766 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/CVNA with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:20,120 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/CVNA
+2026-01-01 10:56:20,139 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for CVNA annual: added 11, skipped 0
+2026-01-01 10:56:20,139 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for CVNA annual: added 11, skipped 0
+2026-01-01 10:56:20,139 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/CVNA with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:20,628 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/CVNA
+2026-01-01 10:56:20,661 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for CVNA quarterly: added 40, skipped 0
+2026-01-01 10:56:20,661 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for CVNA quarterly: added 40, skipped 0
+2026-01-01 10:56:20,661 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/CVNA with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:21,012 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/CVNA
+2026-01-01 10:56:21,034 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for CVNA quarterly: added 39, skipped 0
+2026-01-01 10:56:21,034 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for CVNA quarterly: added 39, skipped 0
+2026-01-01 10:56:21,034 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/CVNA with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:21,507 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/CVNA
+2026-01-01 10:56:21,540 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for CVNA quarterly: added 40, skipped 0
+2026-01-01 10:56:21,540 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for CVNA quarterly: added 40, skipped 0
+2026-01-01 10:56:21,540 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/CVNA with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:22,439 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/CVNA
+2026-01-01 10:56:22,460 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for CVNA annual: added 11, skipped 0
+2026-01-01 10:56:22,460 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for CVNA annual: added 11, skipped 0
+2026-01-01 10:56:22,460 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/CVNA with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:23,040 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/CVNA
+2026-01-01 10:56:23,075 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for CVNA quarterly: added 40, skipped 0
+2026-01-01 10:56:23,075 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for CVNA quarterly: added 40, skipped 0
+2026-01-01 10:56:23,075 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/historical-price-full/CVNA with params {'timeseries': 365, 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:23,640 - MyCFATool.ingestion.fmp_client - INFO - Request successful for historical-price-full/CVNA
+2026-01-01 10:56:23,772 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for CVNA: added 365, skipped 0
+2026-01-01 10:56:23,772 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for CVNA: added 365, skipped 0
+2026-01-01 10:56:23,772 - MyCFATool.domain.services.data_ingestion_service - INFO - Completed ingestion for CVNA
+2026-01-01 10:56:23,772 - MyCFATool.domain.services.data_ingestion_service - INFO - Successfully ingested data for CVNA
+2026-01-01 10:56:23,772 - MyCFATool.domain.services.data_ingestion_service - INFO - Starting batch ingestion for FIX
+2026-01-01 10:56:23,772 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/FIX with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:24,171 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/FIX
+2026-01-01 10:56:24,199 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for FIX annual: added 28, skipped 0
+2026-01-01 10:56:24,199 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for FIX annual: added 28, skipped 0
+2026-01-01 10:56:24,199 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/FIX with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:24,652 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/FIX
+2026-01-01 10:56:24,679 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for FIX annual: added 28, skipped 0
+2026-01-01 10:56:24,679 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for FIX annual: added 28, skipped 0
+2026-01-01 10:56:24,680 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/FIX with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:25,036 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/FIX
+2026-01-01 10:56:25,055 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for FIX annual: added 28, skipped 0
+2026-01-01 10:56:25,055 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for FIX annual: added 28, skipped 0
+2026-01-01 10:56:25,055 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/FIX with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:25,523 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/FIX
+2026-01-01 10:56:25,577 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for FIX quarterly: added 115, skipped 0
+2026-01-01 10:56:25,577 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for FIX quarterly: added 115, skipped 0
+2026-01-01 10:56:25,577 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/FIX with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:26,058 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/FIX
+2026-01-01 10:56:26,108 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for FIX quarterly: added 113, skipped 0
+2026-01-01 10:56:26,108 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for FIX quarterly: added 113, skipped 0
+2026-01-01 10:56:26,108 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/FIX with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:26,596 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/FIX
+2026-01-01 10:56:26,652 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for FIX quarterly: added 113, skipped 0
+2026-01-01 10:56:26,652 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for FIX quarterly: added 113, skipped 0
+2026-01-01 10:56:26,652 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/FIX with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:27,212 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/FIX
+2026-01-01 10:56:27,241 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for FIX annual: added 28, skipped 0
+2026-01-01 10:56:27,241 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for FIX annual: added 28, skipped 0
+2026-01-01 10:56:27,241 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/FIX with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:27,879 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/FIX
+2026-01-01 10:56:27,937 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for FIX quarterly: added 115, skipped 0
+2026-01-01 10:56:27,937 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for FIX quarterly: added 115, skipped 0
+2026-01-01 10:56:27,937 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/historical-price-full/FIX with params {'timeseries': 365, 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:28,532 - MyCFATool.ingestion.fmp_client - INFO - Request successful for historical-price-full/FIX
+2026-01-01 10:56:28,629 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for FIX: added 365, skipped 0
+2026-01-01 10:56:28,629 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for FIX: added 365, skipped 0
+2026-01-01 10:56:28,629 - MyCFATool.domain.services.data_ingestion_service - INFO - Completed ingestion for FIX
+2026-01-01 10:56:28,629 - MyCFATool.domain.services.data_ingestion_service - INFO - Successfully ingested data for FIX
+2026-01-01 10:56:28,629 - MyCFATool.domain.services.data_ingestion_service - INFO - Starting batch ingestion for ARES
+2026-01-01 10:56:28,629 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/ARES with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:29,002 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/ARES
+2026-01-01 10:56:29,026 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for ARES annual: added 14, skipped 0
+2026-01-01 10:56:29,026 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for ARES annual: added 14, skipped 0
+2026-01-01 10:56:29,026 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/ARES with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:29,417 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/ARES
+2026-01-01 10:56:29,443 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for ARES annual: added 14, skipped 0
+2026-01-01 10:56:29,443 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for ARES annual: added 14, skipped 0
+2026-01-01 10:56:29,443 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/ARES with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:29,976 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/ARES
+2026-01-01 10:56:29,996 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for ARES annual: added 14, skipped 0
+2026-01-01 10:56:29,996 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for ARES annual: added 14, skipped 0
+2026-01-01 10:56:29,996 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/ARES with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:30,380 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/ARES
+2026-01-01 10:56:30,415 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for ARES quarterly: added 52, skipped 0
+2026-01-01 10:56:30,415 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for ARES quarterly: added 52, skipped 0
+2026-01-01 10:56:30,415 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/ARES with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:30,946 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/ARES
+2026-01-01 10:56:30,981 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for ARES quarterly: added 51, skipped 0
+2026-01-01 10:56:30,981 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for ARES quarterly: added 51, skipped 0
+2026-01-01 10:56:30,981 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/ARES with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:31,412 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/ARES
+2026-01-01 10:56:31,449 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for ARES quarterly: added 52, skipped 0
+2026-01-01 10:56:31,449 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for ARES quarterly: added 52, skipped 0
+2026-01-01 10:56:31,449 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/ARES with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:32,002 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/ARES
+2026-01-01 10:56:32,025 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for ARES annual: added 14, skipped 0
+2026-01-01 10:56:32,025 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for ARES annual: added 14, skipped 0
+2026-01-01 10:56:32,025 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/ARES with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:32,566 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/ARES
+2026-01-01 10:56:32,608 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for ARES quarterly: added 52, skipped 0
+2026-01-01 10:56:32,608 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for ARES quarterly: added 52, skipped 0
+2026-01-01 10:56:32,608 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/historical-price-full/ARES with params {'timeseries': 365, 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:33,149 - MyCFATool.ingestion.fmp_client - INFO - Request successful for historical-price-full/ARES
+2026-01-01 10:56:33,251 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for ARES: added 365, skipped 0
+2026-01-01 10:56:33,251 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for ARES: added 365, skipped 0
+2026-01-01 10:56:33,251 - MyCFATool.domain.services.data_ingestion_service - INFO - Completed ingestion for ARES
+2026-01-01 10:56:33,251 - MyCFATool.domain.services.data_ingestion_service - INFO - Successfully ingested data for ARES
+2026-01-01 10:56:33,251 - MyCFATool.domain.services.data_ingestion_service - INFO - Starting batch ingestion for SNDK
+2026-01-01 10:56:33,251 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/SNDK with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:33,615 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/SNDK
+2026-01-01 10:56:33,635 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for SNDK annual: added 5, skipped 0
+2026-01-01 10:56:33,635 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for SNDK annual: added 5, skipped 0
+2026-01-01 10:56:33,635 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/SNDK with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:33,985 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/SNDK
+2026-01-01 10:56:34,013 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for SNDK annual: added 27, skipped 0
+2026-01-01 10:56:34,013 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for SNDK annual: added 27, skipped 0
+2026-01-01 10:56:34,013 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/SNDK with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:34,456 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/SNDK
+2026-01-01 10:56:34,480 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for SNDK annual: added 27, skipped 0
+2026-01-01 10:56:34,480 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for SNDK annual: added 27, skipped 0
+2026-01-01 10:56:34,480 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/SNDK with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:34,857 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/SNDK
+2026-01-01 10:56:34,865 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for SNDK quarterly: added 9, skipped 0
+2026-01-01 10:56:34,865 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for SNDK quarterly: added 9, skipped 0
+2026-01-01 10:56:34,865 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/SNDK with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:35,679 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/SNDK
+2026-01-01 10:56:35,698 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for SNDK quarterly: added 7, skipped 0
+2026-01-01 10:56:35,698 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for SNDK quarterly: added 7, skipped 0
+2026-01-01 10:56:35,698 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/SNDK with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:36,186 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/SNDK
+2026-01-01 10:56:36,203 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for SNDK quarterly: added 9, skipped 0
+2026-01-01 10:56:36,203 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for SNDK quarterly: added 9, skipped 0
+2026-01-01 10:56:36,203 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/SNDK with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:37,108 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/SNDK
+2026-01-01 10:56:37,136 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for SNDK annual: added 27, skipped 0
+2026-01-01 10:56:37,136 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for SNDK annual: added 27, skipped 0
+2026-01-01 10:56:37,136 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/SNDK with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:37,922 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/SNDK
+2026-01-01 10:56:37,944 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for SNDK quarterly: added 10, skipped 0
+2026-01-01 10:56:37,944 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for SNDK quarterly: added 10, skipped 0
+2026-01-01 10:56:37,944 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/historical-price-full/SNDK with params {'timeseries': 365, 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:38,420 - MyCFATool.ingestion.fmp_client - INFO - Request successful for historical-price-full/SNDK
+2026-01-01 10:56:38,492 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for SNDK: added 222, skipped 0
+2026-01-01 10:56:38,492 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for SNDK: added 222, skipped 0
+2026-01-01 10:56:38,492 - MyCFATool.domain.services.data_ingestion_service - INFO - Completed ingestion for SNDK
+2026-01-01 10:56:38,492 - MyCFATool.domain.services.data_ingestion_service - INFO - Successfully ingested data for SNDK
+2026-01-01 10:56:38,492 - MyCFATool.domain.services.data_ingestion_service - INFO - Starting batch ingestion for Q
+2026-01-01 10:56:38,492 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/Q with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:38,836 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/Q
+2026-01-01 10:56:38,851 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for Q annual: added 3, skipped 0
+2026-01-01 10:56:38,851 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for Q annual: added 3, skipped 0
+2026-01-01 10:56:38,851 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/Q with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:39,326 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/Q
+2026-01-01 10:56:39,341 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for Q annual: added 2, skipped 0
+2026-01-01 10:56:39,341 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for Q annual: added 2, skipped 0
+2026-01-01 10:56:39,341 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/Q with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:39,695 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/Q
+2026-01-01 10:56:39,709 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for Q annual: added 3, skipped 0
+2026-01-01 10:56:39,709 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for Q annual: added 3, skipped 0
+2026-01-01 10:56:39,710 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/Q with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:40,161 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/Q
+2026-01-01 10:56:40,182 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for Q quarterly: added 5, skipped 0
+2026-01-01 10:56:40,182 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for Q quarterly: added 5, skipped 0
+2026-01-01 10:56:40,182 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/Q with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:40,588 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/Q
+2026-01-01 10:56:40,606 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for Q quarterly: added 3, skipped 0
+2026-01-01 10:56:40,606 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for Q quarterly: added 3, skipped 0
+2026-01-01 10:56:40,606 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/Q with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:40,991 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/Q
+2026-01-01 10:56:41,011 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for Q quarterly: added 5, skipped 0
+2026-01-01 10:56:41,011 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for Q quarterly: added 5, skipped 0
+2026-01-01 10:56:41,011 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/Q with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:41,421 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/Q
+2026-01-01 10:56:41,438 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for Q annual: added 3, skipped 0
+2026-01-01 10:56:41,438 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for Q annual: added 3, skipped 0
+2026-01-01 10:56:41,438 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/Q with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:42,224 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/Q
+2026-01-01 10:56:42,240 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for Q quarterly: added 5, skipped 0
+2026-01-01 10:56:42,240 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for Q quarterly: added 5, skipped 0
+2026-01-01 10:56:42,240 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/historical-price-full/Q with params {'timeseries': 365, 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:42,722 - MyCFATool.ingestion.fmp_client - INFO - Request successful for historical-price-full/Q
+2026-01-01 10:56:42,746 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for Q: added 46, skipped 0
+2026-01-01 10:56:42,746 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for Q: added 46, skipped 0
+2026-01-01 10:56:42,747 - MyCFATool.domain.services.data_ingestion_service - INFO - Completed ingestion for Q
+2026-01-01 10:56:42,747 - MyCFATool.domain.services.data_ingestion_service - INFO - Successfully ingested data for Q
+2026-01-01 10:56:42,747 - MyCFATool.domain.services.data_ingestion_service - INFO - Starting batch ingestion for APP
+2026-01-01 10:56:42,747 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/APP with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:43,130 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/APP
+2026-01-01 10:56:43,153 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for APP annual: added 7, skipped 0
+2026-01-01 10:56:43,153 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for APP annual: added 7, skipped 0
+2026-01-01 10:56:43,153 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/APP with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:43,604 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/APP
+2026-01-01 10:56:43,618 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for APP annual: added 7, skipped 0
+2026-01-01 10:56:43,618 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for APP annual: added 7, skipped 0
+2026-01-01 10:56:43,618 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/APP with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:43,975 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/APP
+2026-01-01 10:56:43,993 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for APP annual: added 7, skipped 0
+2026-01-01 10:56:43,993 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for APP annual: added 7, skipped 0
+2026-01-01 10:56:43,993 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/APP with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:44,344 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/APP
+2026-01-01 10:56:44,366 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for APP quarterly: added 27, skipped 0
+2026-01-01 10:56:44,366 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for APP quarterly: added 27, skipped 0
+2026-01-01 10:56:44,367 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/APP with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:44,814 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/APP
+2026-01-01 10:56:44,827 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for APP quarterly: added 19, skipped 0
+2026-01-01 10:56:44,827 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for APP quarterly: added 19, skipped 0
+2026-01-01 10:56:44,828 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/APP with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:45,240 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/APP
+2026-01-01 10:56:45,263 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for APP quarterly: added 23, skipped 0
+2026-01-01 10:56:45,263 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for APP quarterly: added 23, skipped 0
+2026-01-01 10:56:45,263 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/APP with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:45,789 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/APP
+2026-01-01 10:56:45,798 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for APP annual: added 7, skipped 0
+2026-01-01 10:56:45,798 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for APP annual: added 7, skipped 0
+2026-01-01 10:56:45,798 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/APP with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:46,166 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/APP
+2026-01-01 10:56:46,198 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for APP quarterly: added 27, skipped 0
+2026-01-01 10:56:46,198 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for APP quarterly: added 27, skipped 0
+2026-01-01 10:56:46,198 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/historical-price-full/APP with params {'timeseries': 365, 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:47,051 - MyCFATool.ingestion.fmp_client - INFO - Request successful for historical-price-full/APP
+2026-01-01 10:56:47,160 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for APP: added 365, skipped 0
+2026-01-01 10:56:47,160 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for APP: added 365, skipped 0
+2026-01-01 10:56:47,160 - MyCFATool.domain.services.data_ingestion_service - INFO - Completed ingestion for APP
+2026-01-01 10:56:47,160 - MyCFATool.domain.services.data_ingestion_service - INFO - Successfully ingested data for APP
+2026-01-01 10:56:47,160 - MyCFATool.domain.services.data_ingestion_service - INFO - Starting batch ingestion for EME
+2026-01-01 10:56:47,160 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/EME with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:47,593 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/EME
+2026-01-01 10:56:47,626 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for EME annual: added 31, skipped 0
+2026-01-01 10:56:47,626 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for EME annual: added 31, skipped 0
+2026-01-01 10:56:47,626 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/EME with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:48,120 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/EME
+2026-01-01 10:56:48,151 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for EME annual: added 31, skipped 0
+2026-01-01 10:56:48,151 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for EME annual: added 31, skipped 0
+2026-01-01 10:56:48,151 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/EME with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:48,501 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/EME
+2026-01-01 10:56:48,531 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for EME annual: added 31, skipped 0
+2026-01-01 10:56:48,531 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for EME annual: added 31, skipped 0
+2026-01-01 10:56:48,531 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/EME with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:49,139 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/EME
+2026-01-01 10:56:49,186 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for EME quarterly: added 127, skipped 0
+2026-01-01 10:56:49,186 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for EME quarterly: added 127, skipped 0
+2026-01-01 10:56:49,186 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/EME with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:49,857 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/EME
+2026-01-01 10:56:49,918 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for EME quarterly: added 127, skipped 0
+2026-01-01 10:56:49,918 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for EME quarterly: added 127, skipped 0
+2026-01-01 10:56:49,918 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/EME with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:50,488 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/EME
+2026-01-01 10:56:50,548 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for EME quarterly: added 127, skipped 0
+2026-01-01 10:56:50,548 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for EME quarterly: added 127, skipped 0
+2026-01-01 10:56:50,548 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/EME with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:51,067 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/EME
+2026-01-01 10:56:51,095 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for EME annual: added 31, skipped 0
+2026-01-01 10:56:51,095 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for EME annual: added 31, skipped 0
+2026-01-01 10:56:51,095 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/EME with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:51,638 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/EME
+2026-01-01 10:56:51,702 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for EME quarterly: added 127, skipped 0
+2026-01-01 10:56:51,702 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for EME quarterly: added 127, skipped 0
+2026-01-01 10:56:51,702 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/historical-price-full/EME with params {'timeseries': 365, 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:52,314 - MyCFATool.ingestion.fmp_client - INFO - Request successful for historical-price-full/EME
+2026-01-01 10:56:52,425 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for EME: added 365, skipped 0
+2026-01-01 10:56:52,425 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for EME: added 365, skipped 0
+2026-01-01 10:56:52,425 - MyCFATool.domain.services.data_ingestion_service - INFO - Completed ingestion for EME
+2026-01-01 10:56:52,425 - MyCFATool.domain.services.data_ingestion_service - INFO - Successfully ingested data for EME
+2026-01-01 10:56:52,425 - MyCFATool.domain.services.data_ingestion_service - INFO - Starting batch ingestion for HOOD
+2026-01-01 10:56:52,425 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/HOOD with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:52,804 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/HOOD
+2026-01-01 10:56:52,821 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for HOOD annual: added 6, skipped 0
+2026-01-01 10:56:52,821 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for HOOD annual: added 6, skipped 0
+2026-01-01 10:56:52,822 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/HOOD with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:54,027 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/HOOD
+2026-01-01 10:56:54,049 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for HOOD annual: added 6, skipped 0
+2026-01-01 10:56:54,049 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for HOOD annual: added 6, skipped 0
+2026-01-01 10:56:54,050 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/HOOD with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:54,785 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/HOOD
+2026-01-01 10:56:54,804 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for HOOD annual: added 6, skipped 0
+2026-01-01 10:56:54,804 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for HOOD annual: added 6, skipped 0
+2026-01-01 10:56:54,804 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/HOOD with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:55,240 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/HOOD
+2026-01-01 10:56:55,267 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for HOOD quarterly: added 27, skipped 0
+2026-01-01 10:56:55,267 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for HOOD quarterly: added 27, skipped 0
+2026-01-01 10:56:55,267 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/HOOD with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:55,653 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/HOOD
+2026-01-01 10:56:55,678 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for HOOD quarterly: added 20, skipped 0
+2026-01-01 10:56:55,678 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for HOOD quarterly: added 20, skipped 0
+2026-01-01 10:56:55,678 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/HOOD with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:56,116 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/HOOD
+2026-01-01 10:56:56,144 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for HOOD quarterly: added 23, skipped 0
+2026-01-01 10:56:56,144 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for HOOD quarterly: added 23, skipped 0
+2026-01-01 10:56:56,144 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/HOOD with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:57,153 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/HOOD
+2026-01-01 10:56:57,174 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for HOOD annual: added 6, skipped 0
+2026-01-01 10:56:57,174 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for HOOD annual: added 6, skipped 0
+2026-01-01 10:56:57,174 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/HOOD with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:57,999 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/HOOD
+2026-01-01 10:56:58,028 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for HOOD quarterly: added 27, skipped 0
+2026-01-01 10:56:58,028 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for HOOD quarterly: added 27, skipped 0
+2026-01-01 10:56:58,028 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/historical-price-full/HOOD with params {'timeseries': 365, 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:58,582 - MyCFATool.ingestion.fmp_client - INFO - Request successful for historical-price-full/HOOD
+2026-01-01 10:56:58,694 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for HOOD: added 365, skipped 0
+2026-01-01 10:56:58,694 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for HOOD: added 365, skipped 0
+2026-01-01 10:56:58,694 - MyCFATool.domain.services.data_ingestion_service - INFO - Completed ingestion for HOOD
+2026-01-01 10:56:58,694 - MyCFATool.domain.services.data_ingestion_service - INFO - Successfully ingested data for HOOD
+2026-01-01 10:56:58,694 - MyCFATool.domain.services.data_ingestion_service - INFO - Starting batch ingestion for IBKR
+2026-01-01 10:56:58,694 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/IBKR with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:56:59,066 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/IBKR
+2026-01-01 10:56:59,092 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for IBKR annual: added 21, skipped 0
+2026-01-01 10:56:59,092 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for IBKR annual: added 21, skipped 0
+2026-01-01 10:56:59,092 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/IBKR with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:57:00,465 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/IBKR
+2026-01-01 10:57:00,486 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for IBKR annual: added 20, skipped 0
+2026-01-01 10:57:00,486 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for IBKR annual: added 20, skipped 0
+2026-01-01 10:57:00,486 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/IBKR with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:57:01,384 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/IBKR
+2026-01-01 10:57:01,415 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for IBKR annual: added 21, skipped 0
+2026-01-01 10:57:01,415 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for IBKR annual: added 21, skipped 0
+2026-01-01 10:57:01,415 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/income-statement/IBKR with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:57:01,881 - MyCFATool.ingestion.fmp_client - INFO - Request successful for income-statement/IBKR
+2026-01-01 10:57:01,925 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for IBKR quarterly: added 79, skipped 0
+2026-01-01 10:57:01,925 - MyCFATool.ingestion.data_updater - INFO - Upserted income_statement for IBKR quarterly: added 79, skipped 0
+2026-01-01 10:57:01,925 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/balance-sheet-statement/IBKR with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:57:02,588 - MyCFATool.ingestion.fmp_client - INFO - Request successful for balance-sheet-statement/IBKR
+2026-01-01 10:57:02,639 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for IBKR quarterly: added 76, skipped 0
+2026-01-01 10:57:02,639 - MyCFATool.ingestion.data_updater - INFO - Upserted balance_sheet for IBKR quarterly: added 76, skipped 0
+2026-01-01 10:57:02,639 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/cash-flow-statement/IBKR with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:57:03,203 - MyCFATool.ingestion.fmp_client - INFO - Request successful for cash-flow-statement/IBKR
+2026-01-01 10:57:03,252 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for IBKR quarterly: added 79, skipped 0
+2026-01-01 10:57:03,252 - MyCFATool.ingestion.data_updater - INFO - Upserted cash_flow for IBKR quarterly: added 79, skipped 0
+2026-01-01 10:57:03,252 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/IBKR with params {'period': 'annual', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:57:03,714 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/IBKR
+2026-01-01 10:57:03,745 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for IBKR annual: added 21, skipped 0
+2026-01-01 10:57:03,745 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for IBKR annual: added 21, skipped 0
+2026-01-01 10:57:03,745 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/ratios/IBKR with params {'period': 'quarter', 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:57:04,328 - MyCFATool.ingestion.fmp_client - INFO - Request successful for ratios/IBKR
+2026-01-01 10:57:04,381 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for IBKR quarterly: added 79, skipped 0
+2026-01-01 10:57:04,381 - MyCFATool.ingestion.data_updater - INFO - Upserted ratios for IBKR quarterly: added 79, skipped 0
+2026-01-01 10:57:04,381 - MyCFATool.ingestion.fmp_client - INFO - Making request to https://financialmodelingprep.com/api/v3/historical-price-full/IBKR with params {'timeseries': 365, 'apikey': '927d9dc4b031112483b155d52401c4a2'}
+2026-01-01 10:57:04,934 - MyCFATool.ingestion.fmp_client - INFO - Request successful for historical-price-full/IBKR
+2026-01-01 10:57:05,052 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for IBKR: added 365, skipped 0
+2026-01-01 10:57:05,052 - MyCFATool.ingestion.data_updater - INFO - Upserted historical_price for IBKR: added 365, skipped 0
+2026-01-01 10:57:05,053 - MyCFATool.domain.services.data_ingestion_service - INFO - Completed ingestion for IBKR
+2026-01-01 10:57:05,053 - MyCFATool.domain.services.data_ingestion_service - INFO - Successfully ingested data for IBKR
+2026-01-01 10:57:05,053 - MyCFATool.domain.services.data_ingestion_service - INFO - Batch ingestion completed: 10 successful, 0 failed
+2026-01-01 10:57:05,053 - __main__ - INFO - Batch ingestion completed in 51.20 seconds
+2026-01-01 10:57:05,053 - __main__ - INFO -   Total tickers: 10
+2026-01-01 10:57:05,053 - __main__ - INFO -   Successful: 10
+2026-01-01 10:57:05,053 - __main__ - INFO -   Failed: 0
+2026-01-01 10:57:05,053 - __main__ - INFO - 
+Detailed results per ticker:
+2026-01-01 10:57:05,053 - __main__ - INFO -   CRH: SUCCESS
+2026-01-01 10:57:05,053 - __main__ - INFO -     Total records: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -       prices: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -   CVNA: SUCCESS
+2026-01-01 10:57:05,053 - __main__ - INFO -     Total records: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -       prices: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -   FIX: SUCCESS
+2026-01-01 10:57:05,053 - __main__ - INFO -     Total records: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -       prices: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -   ARES: SUCCESS
+2026-01-01 10:57:05,053 - __main__ - INFO -     Total records: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -       prices: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -   SNDK: SUCCESS
+2026-01-01 10:57:05,053 - __main__ - INFO -     Total records: added 222, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -       prices: added 222, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -   Q: SUCCESS
+2026-01-01 10:57:05,053 - __main__ - INFO -     Total records: added 46, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -       prices: added 46, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -   APP: SUCCESS
+2026-01-01 10:57:05,053 - __main__ - INFO -     Total records: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -       prices: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -   EME: SUCCESS
+2026-01-01 10:57:05,053 - __main__ - INFO -     Total records: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -       prices: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -   HOOD: SUCCESS
+2026-01-01 10:57:05,053 - __main__ - INFO -     Total records: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -       prices: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -   IBKR: SUCCESS
+2026-01-01 10:57:05,053 - __main__ - INFO -     Total records: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO -       prices: added 365, skipped 0
+2026-01-01 10:57:05,053 - __main__ - INFO - 
+Summary Statistics:
+2026-01-01 10:57:05,053 - __main__ - INFO -   Success Rate: 100.0%
+2026-01-01 10:57:05,053 - __main__ - INFO -   Total Processing Time: 51.20 seconds
+2026-01-01 10:57:05,053 - __main__ - INFO -   Average Time per Ticker: 5.12 seconds

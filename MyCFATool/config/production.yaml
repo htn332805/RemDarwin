@@ -1,0 +1,47 @@
+database:
+  type: postgresql
+  host: mycfatool-prod.cluster-xyz.us-east-1.rds.amazonaws.com
+  port: 5432
+  name: mycfatool
+  sslmode: require
+  connection_pool:
+    min: 5
+    max: 20
+    timeout: 30
+
+redis:
+  url: redis://mycfatool-redis-prod:6379/0
+  rate_limit_db: 0
+  cache_db: 1
+
+auth:
+  secret_key: ${SECRET_KEY}
+  session_timeout: 3600
+
+api:
+  fmp_api_key: ${FMP_API_KEY}
+  rate_limit: 120
+  timeout: 30
+
+logging:
+  level: ERROR
+  format: json
+  handlers:
+    - cloudwatch
+    - file
+
+scheduler:
+  enabled: true
+  batch_update_interval: 86400  # Daily
+  price_update_interval: 3600   # Hourly
+
+security:
+  cors_origins:
+    - https://mycfatool.com
+  csrf_enabled: true
+  secure_headers: true
+
+monitoring:
+  enabled: true
+  metrics_interval: 60
+  health_check_endpoint: /health

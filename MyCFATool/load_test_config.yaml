@@ -1,0 +1,102 @@
+# Load Testing Configuration for MyCFATool
+# Configuration for different environments and test scenarios
+
+# Environment settings
+environments:
+  local:
+    host: "http://localhost:8050"
+    users: 10
+    spawn_rate: 2
+    run_time: "5m"
+    thresholds:
+      response_time_95p: 2000  # 95th percentile response time in ms
+      response_time_99p: 5000
+      failure_rate: 5.0  # Max acceptable failure rate %
+
+  staging:
+    host: "https://staging-mycfatool.example.com"
+    users: 25
+    spawn_rate: 5
+    run_time: "10m"
+    thresholds:
+      response_time_95p: 3000
+      response_time_99p: 8000
+      failure_rate: 5.0
+
+  production:
+    host: "https://mycfatool.example.com"
+    users: 50
+    spawn_rate: 10
+    run_time: "15m"
+    thresholds:
+      response_time_95p: 5000
+      response_time_99p: 10000
+      failure_rate: 2.0
+
+# Test scenarios configuration
+scenarios:
+  light_browsing:
+    user_class: "LightUser"
+    description: "Light browsing users - focus on overview and basic data viewing"
+    weight: 0.6  # 60% of users
+    target_rps: 1.0  # Target requests per second per user
+
+  heavy_analysis:
+    user_class: "HeavyUser"
+    description: "Heavy analysis users - deep technical analysis and portfolio creation"
+    weight: 0.2  # 20% of users
+    target_rps: 0.5
+
+  mixed_usage:
+    user_class: "MixedUser"
+    description: "Mixed usage - combination of browsing and analysis"
+    weight: 0.2  # 20% of users
+    target_rps: 0.8
+
+# Performance thresholds for different operation types
+operation_thresholds:
+  page_navigation:
+    response_time_95p: 1000
+    failure_rate: 1.0
+
+  data_loading:
+    response_time_95p: 2000
+    failure_rate: 5.0
+
+  chart_generation:
+    response_time_95p: 3000
+    failure_rate: 10.0
+
+  pdf_generation:
+    response_time_95p: 5000
+    failure_rate: 10.0
+
+# Test data settings
+test_data:
+  sample_tickers: ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA", "NVDA", "META", "NFLX", "CRM", "ORCL", "JPM", "BAC", "WFC", "C", "GS"]
+  test_users:
+    - username: "testuser1"
+      password: "testpass1"
+    - username: "testuser2"
+      password: "testpass2"
+    - username: "testuser3"
+      password: "testpass3"
+
+# Monitoring and reporting
+monitoring:
+  metrics_to_collect:
+    - response_time
+    - failure_rate
+    - requests_per_second
+    - users_active
+    - custom_timers
+
+  alerts:
+    high_response_time: 5000  # Alert if any request > 5s
+    high_failure_rate: 10.0   # Alert if failure rate > 10%
+
+# Database load settings (for concurrent user simulation)
+database_load:
+  max_connections: 100
+  connection_timeout: 30
+  query_timeout: 60

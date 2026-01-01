@@ -1,0 +1,2 @@
+timestamp,ticker,period,ratio_name,computed_value,reported_value,percentage_difference,is_discrepancy
+2026-01-01T03:42:25.845593,AAPL,annual,currentRatio,6.0,5.0,20.0,True

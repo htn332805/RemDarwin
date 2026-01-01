@@ -1,0 +1,59 @@
+api:
+  fmp:
+    base_url: "https://financialmodelingprep.com/api/v3/"
+    limit: 120
+
+redis:
+  host: "localhost"
+  port: 6379
+  db: 0
+  password: ""  # Set in environment variable REDIS_PASSWORD if needed
+  caching:
+    enabled: true
+    ttl:
+      statements: 3600  # 1 hour for income statement, balance sheet, cash flow
+      ratios: 1800      # 30 minutes for ratios
+      prices: 900       # 15 minutes for historical prices
+
+database:
+  type: "sqlite"  # Options: sqlite, postgresql
+  path: "database/"  # For SQLite databases
+  connection_string: "postgresql://myCFATool:secure_password@myCFATool-prod.cluster-xyz.us-east-1.rds.amazonaws.com:5432/mycfatool"  # For PostgreSQL production
+  connection_pool:
+    min: 5
+    max: 20
+    timeout: 30
+  sslmode: require  # For production PostgreSQL
+
+scheduler:
+  enabled: true
+  batch_mode: true  # Use batch processing for all updates
+  intervals:
+    all_data: "weekly"  # Batch update all data weekly
+  timezone: "UTC"
+
+batch_ingestion:
+  max_concurrent: 1  # Maximum concurrent ticker processing
+  continue_on_error: true  # Continue processing other tickers if one fails
+
+testing:
+  enabled: false  # Set to false to use production settings
+  tickers_limit: 10  # Limited number of tickers for testing
+
+# Production settings (when testing.enabled: false)
+tickers_source: "sp500"  # Options: static, sp500, dynamic
+tickers_limit: 100  # For dynamic fetch, limit number of tickers
+
+tickers:
+  - "AAPL"
+  - "MSFT"
+  - "GOOGL"
+
+
+
+logging:
+  level: "INFO"
+  file: "logs/myCFATool.log"
+
+auth:
+  secret_key: "change-this-to-a-secure-random-key"
