@@ -5,7 +5,7 @@
 **MyCFATool** is a personal, institutional-grade financial data platform designed to automate the collection, storage, verification, analysis, and visualization of equity financial data.  
 The system will integrate with **Financial Modeling Prep (FMP)** to retrieve financial statements, ratios, metrics, and historical prices, store them in **SQLite databases**, and expose the data via a **Python Dash dashboard** for professional-grade technical and fundamental analysis.
 
-The tool is designed to support **CFA-style financial modeling, auditing, and validation**, with an emphasis on data accuracy, reproducibility, and continuous updates.
+The tool is designed to support **CFA-style financial modeling, auditing, and validation**, with an emphasis on data accuracy, reproducibility, and continuous updates. It design is focus on simplicity, modularity, scalabiliyty, extensibility, and future-proofing to accommodate new data fields and analysis techniques.
 
 ---
 
