@@ -1,0 +1,13 @@
+ratios:
+  - name: "working_capital"
+    formula: "bs_df['totalCurrentAssets'] - bs_df['totalCurrentLiabilities']"
+    category: "liquidity"
+    dfs: ["bs_df"]
+  - name: "debt_coverage"
+    formula: "is_df['ebit'] / (bs_df['totalDebt'] / 12)"  # Annualized
+    category: "solvency"
+    dfs: ["is_df", "bs_df"]
+  - name: "price_to_book"
+    formula: "prices_df['close'] / (bs_df['totalEquity'] / bs_df['totalAssets'])"
+    category: "market"
+    dfs: ["prices_df", "bs_df"]
