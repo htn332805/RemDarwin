@@ -1175,8 +1175,6 @@ class CompFin:
         if self.total_revenue:
             if self.gross_profit:
                 metrics['profitability']['gross_profit_margin']=self.compute_gross_profit_margin_metric(self.gross_profit, self.total_revenue)
-            if self.operating_income:
-                metrics['profitability']['operating_margin']=self.compute_operating_profit_margin_metric(self.operating_income, self.total_revenue)
             if self.net_income:
                 metrics['profitability']['net_profit_margin']=self.compute_net_profit_margin_metric(self.net_income, self.total_revenue)
             if self.income_before_tax:
@@ -1186,6 +1184,7 @@ class CompFin:
             if self.property_plant_equipment_net:
                 metrics['efficiency']['fixed_asset_turnover']=self.compute_fixed_asset_turnover_metric(self.total_revenue, self.property_plant_equipment_net)
             if self.operating_income:
+                metrics['profitability']['operating_profit_margin']=self.compute_operating_profit_margin_metric(self.operating_income, self.total_revenue)
                 metrics['profitability']['ebit_per_revenue']=self.compute_ebit_per_revenue_metric(self.operating_income, self.total_revenue)
             if self.operating_cash_flow:
                 metrics['cash_flow']['operating_cash_flow_sales_ratio']=self.compute_operating_cash_flow_sales_ratio_metric(self.operating_cash_flow, self.total_revenue)
@@ -1201,34 +1200,159 @@ class CompFin:
                 metrics['valuation']['ev_to_sales']=self.compute_ev_to_sales_metric(self.enterprise_value, self.total_revenue)
             if self.number_of_shares_outstanding:
                 metrics['per_share']['revenue_per_share']=self.compute_revenue_per_share_metric(self.total_revenue, self.number_of_shares_outstanding)
+            if self.accounts_receivable:
+                metrics['efficiency']['days_sales_outstanding']=self.compute_days_of_sales_outstanding_metric(self.accounts_receivable, self.total_revenue)
+                metrics['efficiency']['receivables_turnover']=self.compute_receivables_turnover_metric(self.total_revenue, self.accounts_receivable)
+                if self.inventory:
+                    if self.cost_of_goods_sold:
+                        metrics['efficiency']['operating_cycle']=self.compute_operating_cycle_metric(self.accounts_receivable, self.total_revenue, self.inventory, self.cost_of_goods_sold)
+                        if self.account_payables:
+                            metrics['efficiency']['cash_conversion_cycle']=self.compute_cash_conversion_cycle_metric(self.accounts_receivable, self.total_revenue, self.inventory, self.cost_of_goods_sold, self.account_payables)
+            if self.market_cap:
+                metrics['valuation']['price_to_sales_ratio']=self.compute_price_to_sales_ratio_metric(self.market_cap, self.total_revenue)
         
         if self.number_of_shares_outstanding:
-            if self.net_income:
-                metrics['per_share']['net_income_per_share']=self.compute_net_income_per_share_metric(self.net_income, self.number_of_shares_outstanding)
             if self.operating_cash_flow:
                 metrics['per_share']['operating_cash_flow_per_share']=self.compute_operating_cash_flow_per_share_metric(self.operating_cash_flow, self.number_of_shares_outstanding)
             if self.free_cash_flow:
                 metrics['per_share']['free_cash_flow_per_share']=self.compute_free_cash_flow_per_share_metric(self.free_cash_flow, self.number_of_shares_outstanding)
+                if self.market_price_per_share:
+                    metrics['valuation']['price_to_free_cash_flow_ratio']=self.compute_price_to_free_cash_flow_ratio_metric(self.market_price_per_share, self.free_cash_flow, self.number_of_shares_outstanding)
+                    metrics['valuation']['free_cash_flow_yield']=self.compute_free_cash_flow_yield_metric(self.free_cash_flow, self.number_of_shares_outstanding, self.market_price_per_share)
             if self.cash_and_cash_equivalents:
                 metrics['per_share']['cash_per_share']=self.compute_cash_per_share_metric(self.cash_and_cash_equivalents, self.number_of_shares_outstanding)
+                if self.accounts_receivable:
+                    if self.inventory:
+                        if self.total_liabilities:
+                            metrics['valuation']['graham_net_net_per_share']=self.compute_graham_net_net_per_share_metric(self.cash_and_cash_equivalents, self.accounts_receivable, self.inventory, self.total_liabilities, self.number_of_shares_outstanding)
             if self.shareholders_equity:
                 metrics['valuation']['book_value_per_share']=self.compute_book_value_per_share_metric(self.shareholders_equity, self.number_of_shares_outstanding)
+                if self.market_price_per_share:
+                    metrics['valuation']['price_to_book_ratio']=self.compute_price_to_book_ratio_metric(self.market_price_per_share, self.shareholders_equity, self.number_of_shares_outstanding)
             if self.capital_expenditures:
                 metrics['per_share']['capex_per_share']=self.compute_capex_per_share_metric(self.capital_expenditures, self.number_of_shares_outstanding)
             if self.net_income:
                 metrics['per_share']['earnings_per_share']=self.compute_earnings_per_share_metric(self.net_income, self.number_of_shares_outstanding)
+                metrics['per_share']['net_income_per_share']=self.compute_net_income_per_share_metric(self.net_income, self.number_of_shares_outstanding)
                 if self.shareholders_equity:
                     metrics['valuation']['graham_number']=self.compute_graham_number_metric(self.net_income, self.shareholders_equity, self.number_of_shares_outstanding)
+                if self.market_price_per_share:
+                    metrics['valuation']['price_to_earnings_ratio']=self.compute_price_earnings_ratio_metric(self.market_price_per_share, self.net_income, self.number_of_shares_outstanding)
+                    self.price_earnings_ratio=self.compute_price_earnings_ratio_metric(self.market_price_per_share, self.net_income, self.number_of_shares_outstanding)
+                    if self.operating_cash_flow:
+                        metrics['valuation']['price_to_operating_cash_flow_ratio']=self.compute_price_to_operating_cash_flow_ratio_metric(self.market_price_per_share, self.operating_cash_flow, self.number_of_shares_outstanding)
 
         if self.net_income:
             if self.total_assets:
                 metrics['profitability']['return_on_assets']=self.compute_return_on_assets_metric(self.net_income, self.total_assets)
             if self.shareholders_equity:
                 metrics['profitability']['return_on_equity']=self.compute_return_on_equity_metric(self.net_income, self.shareholders_equity)
+            if self.income_before_tax:
+                metrics['tax_n_interest']['net_income_per_ebt']=self.compute_net_income_per_ebt_metric(self.net_income, self.income_before_tax)
+            if self.operating_cash_flow:
+                metrics['cash_flow']['income_quality']=self.compute_income_quality_metric(self.operating_cash_flow, self.net_income)
+           
 
+
+        if self.operating_cash_flow:
+            if self.capital_expenditures:
+                metrics['cash_flow']['capex_to_operating_cash_flow']=self.compute_capex_to_operating_cash_flow_metric(self.capital_expenditures, self.operating_cash_flow)
+                metrics['cash_flow']['capex_coverage_ratio']=self.compute_capital_expenditure_coverage_ratio_metric(self.operating_cash_flow, self.capital_expenditures)
+            if self.market_cap:
+                metrics['valuation']['price_cash_flow']=self.compute_price_cash_flow_ratio_metric( self.market_cap, self.operating_cash_flow)
+            if self.enterprise_value:
+                metrics['valuation']['ev_to_operating_cash_flow']=self.compute_ev_to_operating_cash_flow_metric(self.enterprise_value, self.operating_cash_flow)
+            if self.free_cash_flow:
+                metrics['cash_flow']['free_cash_flow_to_operating_cash_flow']=self.compute_free_cash_flow_operating_cash_flow_ratio_metric(self.operating_cash_flow, self.free_cash_flow)
+            
+        if self.total_current_assets:
+            if self.total_current_liabilities:
+                metrics['liquidity']['current_ratio']=self.compute_current_ratio_metric(self.total_current_assets, self.total_current_liabilities)
+                metrics['liquidity']['working_capital']=self.compute_working_capital_metric(self.total_current_assets, self.total_current_liabilities)
+                metrics['liquidity']['net_current_asset_value']=self.compute_net_current_asset_value_metric(self.total_current_assets, self.total_current_liabilities)
+                if self.inventory:
+                    metrics['liquidity']['quick_ratio']=self.compute_quick_ratio_metric(self.total_current_assets, self.inventory, self.total_current_liabilities)
+
+        if self.total_debt:
+            if self.total_assets:
+                metrics['solvency']['debt_to_asset']=self.compute_debt_ratio_metric(self.total_debt, self.total_assets)
+            if self.shareholders_equity:
+                metrics['solvency']['debt_to_equity']=self.compute_debt_equity_ratio_metric(self.total_debt, self.shareholders_equity)                
+                metrics['solvency']['debt_to_capitalization']=self.compute_total_debt_to_capitalization_metric(self.total_debt, self.shareholders_equity)
+            if self.operating_cash_flow:
+                metrics['solvency']['cash_flow_to_debt']=self.compute_cash_flow_to_debt_ratio_metric(self.operating_cash_flow, self.total_debt)
+            
+        if self.cost_of_goods_sold:
+            if self.inventory:
+                metrics['efficiency']['days_of_inventory_outstanding']=self.compute_days_of_inventory_outstanding_metric(self.inventory, self.cost_of_goods_sold)
+                metrics['efficiency']['inventory_turnover']=self.compute_inventory_turnover_metric(self.cost_of_goods_sold, self.inventory)
+            if self.account_payables:
+                metrics['efficiency']['days_payables_outstanding']=self.compute_days_of_payables_outstanding_metric(self.account_payables, self.cost_of_goods_sold)
+                metrics['efficiency']['payables_turnover']=self.compute_payables_turnover_metric(self.cost_of_goods_sold, self.account_payables)
+            
+        if self.enterprise_value:
+            if self.ebitda:
+                metrics['valuation']['enterprise_value_mutliple']=self.compute_enterprise_value_multiple_metric(self.enterprise_value, self.ebitda)
+            if self.operating_cash_flow:
+                metrics['valuation']['ev_to_operating_cash_flow']=self.compute_ev_to_operating_cash_flow_metric(self.enterprise_value, self.operating_cash_flow)
+            if self.free_cash_flow:
+                metrics['valuation']['ev_to_free_cash_flow']=self.compute_ev_to_free_cash_flow_metric(self.enterprise_value, self.free_cash_flow)
+            
+        if self.operating_income:
+            if self.interest_expense:
+                metrics['tax_n_interest']['interest_coverage_ratio']=self.compute_interest_coverage_metric(self.operating_income, self.interest_expense)
+            if self.income_before_tax:
+                metrics['tax_n_interest']['ebit_per_ebt']=self.compute_ebt_per_ebit_metric( self.income_before_tax, self.operating_income)   
+            if self.total_assets:
+                if self.total_current_liabilities:
+                    metrics['solvency']['return_on_capital_employed']=self.compute_return_on_capital_employed_metric(self.operating_income, self.total_assets, self.total_current_liabilities)
+
+        if self.total_assets:
+            if self.total_current_liabilities:
+                metrics['others']['invested_capital']=self.compute_invested_capital_metric(self.total_assets, self.total_current_liabilities)
+            if self.shareholders_equity:
+                metrics['solvency']['equity_multiplier']=self.compute_company_equity_multiplier_metric(self.total_assets, self.shareholders_equity)
+            if self.goodwill_and_intangible_assets:
+                metrics['others']['intangibles_to_total_assets']=self.compute_intangibles_to_total_assets_metric(self.goodwill_and_intangible_assets, self.total_assets)
+                metrics['others']['tangible_asset_value']=self.compute_tangible_asset_value_metric(self.total_assets, self.goodwill_and_intangible_assets)
+            if self.net_income:
+                if self.goodwill_and_intangible_assets:
+                    metrics['profitability']['return_on_tangible_assets']=self.compute_return_on_tangible_assets_metric(self.net_income, self.total_assets, self.goodwill_and_intangible_assets)
+                if self.total_current_liabilities:
+                    metrics['solvency']['roic']=self.compute_roic_metric(self.net_income, self.total_assets, self.total_current_liabilities)
+            
+        if self.shareholders_equity:
+            if self.long_term_debt:
+                metrics['solvency']['long_term_debt_to_capitalization']=self.compute_long_term_debt_to_capitalization_metric(self.long_term_debt, self.shareholders_equity)
+            
+        if self.capital_expenditures:
+            metrics['expenses']['capex_to_depreciation']=self.compute_capex_to_depreciation_metric(self.capital_expenditures, self.depreciation_and_amortization)
+        
+        if self.income_before_tax:
+            if self.income_tax_expense:
+                metrics['tax_n_interest']['effective_tax_rate']=self.compute_effective_tax_rate_metric(self.income_tax_expense, self.income_before_tax)
+
+        if self.total_current_liabilities:
+            if self.cash_and_cash_equivalents:
+                metrics['liquidity']['cash_ratio']=self.compute_cash_ratio_metric(self.cash_and_cash_equivalents, self.total_current_liabilities)
+
+        if self.dividends_per_share:
+            if self.market_price_per_share:
+                metrics['valuation']['dividend_yield']=self.compute_dividend_yield_metric(self.dividends_per_share, self.market_price_per_share)
+            if self.earnings_per_share:
+                metrics['valuation']['payout_ratio']=self.compute_payout_ratio_metric(self.dividends_per_share, self.earnings_per_share)
+
+        if self. growth_rate:
+            if self.price_earnings_ratio:
+                metrics['valuation']['price_earning_to_growth_ratio']=self.compute_price_earnings_to_growth_ratio_metric(self.price_earnings_ratio, self. growth_rate)
+
+        if self.market_price_per_share:
+            if self.earnings_per_share:
+                metrics['valuation']['earning_yield']=self.compute_earning_yield_metric(self.earnings_per_share, self.market_price_per_share)
+            pass
 
         return metrics
-    
+        
     # Add more methods here...
 
 
@@ -1259,7 +1383,7 @@ def read_csv_to_dataframe(file_path):
 
 
 def main():
-    input_file_name ="/Users/hai/GitHub/RemDarwin/data/CSCO_financial_statement_full_as_reported.csv"
+    input_file_name ="data/CSCO_financial_statement_full_as_reported.csv"
     data=CompFin()
     if path_exists(input_file_name):
         df = read_csv_to_dataframe(input_file_name)

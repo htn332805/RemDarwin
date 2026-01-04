@@ -52,6 +52,7 @@ class CompFin:
         self.property_plant_equipment_net = None
         self.gross_profit = None
         self.operatingleaseliabilitynoncurrent = None
+        self.stock_based_compensation = 1
         
 
         
@@ -1110,7 +1111,11 @@ class CompFin:
             raise ValueError("Division by zero: weighted_average_shares_outstanding cannot be zero")
         eps = self.net_income / self.number_of_shares_outstanding
         bvps = self.shareholders_equity / self.number_of_shares_outstanding
-        return math.sqrt(22.5 * eps * bvps)
+        product = 22.5 * eps * bvps
+        ic(eps,bvps,product)
+        if product < 0:
+            raise ValueError("Graham Number calculation requires positive EPS and BVPS")
+        return math.sqrt(product)
 
     def compute_operating_cycle_metric(self, accounts_receivable, total_revenue, inventory, cost_of_goods_sold):
         """
@@ -1167,8 +1172,61 @@ class CompFin:
         metrics['tax_n_interest']={}
         metrics['others']={}
 
-
+        if self.total_revenue:
+            if self.gross_profit:
+                metrics['profitability']['gross_profit_margin']=self.compute_gross_profit_margin_metric(self.gross_profit, self.total_revenue)
+            if self.operating_income:
+                metrics['profitability']['operating_margin']=self.compute_operating_profit_margin_metric(self.operating_income, self.total_revenue)
+            if self.net_income:
+                metrics['profitability']['net_profit_margin']=self.compute_net_profit_margin_metric(self.net_income, self.total_revenue)
+            if self.income_before_tax:
+                metrics['profitability']['pretax_margin']=self.compute_pretax_profit_margin_metric(self.income_before_tax, self.total_revenue)
+            if self.total_assets:
+                metrics['profitability']['asset_turnover']=self.compute_asset_turnover_metric(self.net_income, self.total_assets)
+            if self.property_plant_equipment_net:
+                metrics['efficiency']['fixed_asset_turnover']=self.compute_fixed_asset_turnover_metric(self.total_revenue, self.property_plant_equipment_net)
+            if self.operating_income:
+                metrics['profitability']['ebit_per_revenue']=self.compute_ebit_per_revenue_metric(self.operating_income, self.total_revenue)
+            if self.operating_cash_flow:
+                metrics['cash_flow']['operating_cash_flow_sales_ratio']=self.compute_operating_cash_flow_sales_ratio_metric(self.operating_cash_flow, self.total_revenue)
+            if self.general_and_administrative_expenses:
+                metrics['expenses']['SGA_to_revenue']=self.compute_sales_general_and_administrative_to_revenue_metric(self.general_and_administrative_expenses, self.total_revenue)
+            if self.research_and_development_expenses:
+                metrics['expenses']['R&D_to_revenue']=self.compute_research_and_development_to_revenue_metric(self.research_and_development_expenses, self.total_revenue)
+            if self.capital_expenditures:
+                metrics['efficiency']['capex_to_revenue']=self.compute_capex_to_revenue_metric(self.capital_expenditures, self.total_revenue)
+            if self.stock_based_compensation:
+                metrics['expenses']['stock_based_compensation_to_revenue']=self.compute_stock_based_compensation_to_revenue_metric(self.stock_based_compensation, self.total_revenue)
+            if self.enterprise_value:
+                metrics['valuation']['ev_to_sales']=self.compute_ev_to_sales_metric(self.enterprise_value, self.total_revenue)
+            if self.number_of_shares_outstanding:
+                metrics['per_share']['revenue_per_share']=self.compute_revenue_per_share_metric(self.total_revenue, self.number_of_shares_outstanding)
         
+        if self.number_of_shares_outstanding:
+            if self.net_income:
+                metrics['per_share']['net_income_per_share']=self.compute_net_income_per_share_metric(self.net_income, self.number_of_shares_outstanding)
+            if self.operating_cash_flow:
+                metrics['per_share']['operating_cash_flow_per_share']=self.compute_operating_cash_flow_per_share_metric(self.operating_cash_flow, self.number_of_shares_outstanding)
+            if self.free_cash_flow:
+                metrics['per_share']['free_cash_flow_per_share']=self.compute_free_cash_flow_per_share_metric(self.free_cash_flow, self.number_of_shares_outstanding)
+            if self.cash_and_cash_equivalents:
+                metrics['per_share']['cash_per_share']=self.compute_cash_per_share_metric(self.cash_and_cash_equivalents, self.number_of_shares_outstanding)
+            if self.shareholders_equity:
+                metrics['valuation']['book_value_per_share']=self.compute_book_value_per_share_metric(self.shareholders_equity, self.number_of_shares_outstanding)
+            if self.capital_expenditures:
+                metrics['per_share']['capex_per_share']=self.compute_capex_per_share_metric(self.capital_expenditures, self.number_of_shares_outstanding)
+            if self.net_income:
+                metrics['per_share']['earnings_per_share']=self.compute_earnings_per_share_metric(self.net_income, self.number_of_shares_outstanding)
+                if self.shareholders_equity:
+                    metrics['valuation']['graham_number']=self.compute_graham_number_metric(self.net_income, self.shareholders_equity, self.number_of_shares_outstanding)
+
+        if self.net_income:
+            if self.total_assets:
+                metrics['profitability']['return_on_assets']=self.compute_return_on_assets_metric(self.net_income, self.total_assets)
+            if self.shareholders_equity:
+                metrics['profitability']['return_on_equity']=self.compute_return_on_equity_metric(self.net_income, self.shareholders_equity)
+
+
         return metrics
     
     # Add more methods here...
@@ -1215,7 +1273,7 @@ def main():
         data.cost_of_goods_sold = df.tail(1).to_dict(orient="records")[0]["costofgoodsandservicessold"]
         data.account_payables = df.tail(1).to_dict(orient="records")[0]["accountspayablecurrent"]
         data.net_income = df.tail(1).to_dict(orient="records")[0]["netincomeloss"]
-        data.shareholders_equity = df.tail(1).to_dict(orient="records")[0]["stockholdersequity"]
+        data.shareholders_equity = -1*df.tail(1).to_dict(orient="records")[0]["stockholdersequity"]
         data.number_of_shares_outstanding = df.tail(1).to_dict(orient="records")[0]["commonstocksharesoutstanding"]
         data.operating_cash_flow = df.tail(1).to_dict(orient="records")[0]["netcashprovidedbyusedinoperatingactivities"]
         data.capital_expenditures = df.tail(1).to_dict(orient="records")[0]["paymentstoacquirepropertyplantandequipment"]
@@ -1227,7 +1285,7 @@ def main():
         data.research_and_development_expenses = df.tail(1).to_dict(orient="records")[0]["researchanddevelopmentexpense"]
         data.earnings_per_share = df.tail(1).to_dict(orient="records")[0]["earningspersharebasic"]
         data.operating_income = df.tail(1).to_dict(orient="records")[0]["operatingincomeloss"]
-        data.operatingincomeloss = df.tail(1).to_dict(orient="records")[0]["incomelossfromcontinuingoperationsbeforeincometaxesextraordinaryitemsnoncontrollinginterest"]
+        #data.operatingincomeloss = df.tail(1).to_dict(orient="records")[0]["incomelossfromcontinuingoperationsbeforeincometaxesextraordinaryitemsnoncontrollinginterest"]
         data.interest_expense = df.tail(1).to_dict(orient="records")[0]["interestexpensenonoperating"]
         data.income_tax_expense = df.tail(1).to_dict(orient="records")[0]["incometaxexpensebenefit"]
         data.property_plant_equipment_net = df.tail(1).to_dict(orient="records")[0]["propertyplantandequipmentnet"]
