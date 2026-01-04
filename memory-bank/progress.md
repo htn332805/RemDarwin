@@ -24,6 +24,10 @@ This file tracks the project's progress using a task list format.
 - ✅ Add documentation and usage instructions (README.md)
 - ✅ Initialize memory bank with project context
 - ✅ Expanded confidence intervals subtask in fundamental_analysis_plan.md with detailed elaboration including context, explanations, and detailed examples covering statistical, Monte Carlo, bootstrapping, and scenario-based methods for generating confidence intervals in valuation synthesis
+- ✅ [2026-01-04 22:11:29] - Expanded LLM insights/predictions integration with rule-based scores subtask in fundamental_analysis_plan.md with detailed elaboration including context, explanations, and fully detailed example covering all possible catalysts and scenarios
+- ✅ [2026-01-04 22:44:00] - Expanded automated report generation subtask in fundamental_analysis_plan.md with detailed elaboration including context, explanations, and comprehensive example covering all possible catalysts and scenarios
+- ✅ [2026-01-04 22:56:34] - Expanded backtest decision framework subtask in fundamental_analysis_plan.md with detailed elaboration including context, explanations, and comprehensive examples covering all possible catalysts and scenarios
+- ✅ [2026-01-04 23:02:17] - Expanded refine thresholds and weights subtask in fundamental_analysis_plan.md with detailed elaboration including context, explanations, and fully detailed examples covering all possible catalysts and scenarios
 
 *
 

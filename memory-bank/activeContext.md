@@ -29,6 +29,10 @@ Project implementation is complete. The fmp_fetcher.py CLI script is fully funct
 - [2026-01-04 21:18:00] - Expanded peer comparison algorithms subtask in fundamental_analysis_plan.md with detailed elaboration, context, explanations, and fully detailed example covering all possible catalysts and scenarios
 - [2026-01-04 21:25:00] - Expanded decision matrix logic subtask in fundamental_analysis_plan.md with detailed elaboration, context, explanations, and fully detailed example covering all possible catalysts and scenarios
 - [2026-01-04 21:31:00] - Expanded API for interpretive prompts subtask in fundamental_analysis_plan.md with detailed elaboration including context, explanations, and fully detailed example covering all possible catalysts and scenarios
+- [2026-01-04 22:11:29] - Expanded LLM insights/predictions integration with rule-based scores subtask in fundamental_analysis_plan.md with detailed elaboration including context, explanations, and fully detailed example covering all possible catalysts and scenarios
+- [2026-01-04 22:44:00] - Expanded automated report generation subtask in fundamental_analysis_plan.md with detailed elaboration including context, explanations, and comprehensive example covering all possible catalysts and scenarios
+- [2026-01-04 22:56:34] - Expanded backtest decision framework subtask in fundamental_analysis_plan.md with detailed elaboration including context, explanations, and comprehensive examples covering all possible catalysts and scenarios
+ - [2026-01-04 23:02:17] - Expanded refine thresholds and weights subtask in fundamental_analysis_plan.md with detailed elaboration including context, explanations, and fully detailed examples covering all possible catalysts and scenarios
 
 *
 

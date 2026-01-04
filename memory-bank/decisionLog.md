@@ -216,3 +216,26 @@ To provide detailed guidance for implementing integrated decision frameworks tha
 - Provided Python code example with DecisionMatrix class featuring composite scoring and sensitivity analysis
 - Developed 10 scenario examples covering: value investments, growth investments, quality investments, balanced cases, hold cases, sell cases, qualitative overrides, risk overrides, sensitivity adjustments, and extreme cases
 - Each scenario demonstrates how decision logic adapts to different investment styles and market catalysts
+
+*
+
+## Decision
+
+Expand the refine thresholds and weights subtask with comprehensive examples covering all possible market catalysts and scenarios for parameter optimization
+
+*
+
+## Rationale
+
+To provide detailed guidance for implementing dynamic parameter adjustment systems that adapt scoring models to varying market conditions, ensuring the plan supports sophisticated, market-aware investment frameworks with optimal predictive accuracy across different economic environments.
+
+*
+
+## Implementation Details
+
+- Added detailed context explaining threshold and weight refinement's role in maintaining model calibration and predictive power
+- Included comprehensive explanations of parameter optimization frameworks, statistical methods, and market regime adaptation
+- Provided step-by-step process for threshold and weight refinement with validation protocols
+- Developed 10 scenario examples covering: bull markets, bear markets, inflation/deflation, sector rotations, high/low volatility, interest rate shocks, and crisis responses
+- Each scenario includes catalyst description, threshold/weight adjustments, rationale, and backtesting validation results
+- Added institutional parameter management protocols with machine learning optimization and quarterly review processes
