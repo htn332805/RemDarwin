@@ -105,3 +105,114 @@ Provides detailed operation tracking while keeping console clean for important u
 - Configured logging with filemode 'w', INFO level, timestamped format
 - Replaced print statements with logging calls
 - Retained console output for API URLs and final summary
+
+*
+
+## Decision
+
+Expand the ratio calculations subtask with comprehensive examples covering all possible financial scenarios and catalysts
+
+*
+
+## Rationale
+
+To ensure the fundamental analysis plan provides detailed guidance for implementing robust ratio calculations that handle diverse real-world situations, improving the plan's completeness and usefulness for development. This addresses potential edge cases and ensures institutional-grade reliability.
+
+*
+
+## Implementation Details
+
+- Added detailed context explaining the class's role as computational engine for the analysis system
+- Included comprehensive explanations of architectural components and error handling
+- Provided Python code example with RatioCalculator class featuring validation, normalization, and calculation methods
+- Developed 10 scenario examples covering: healthy companies, high-growth startups, distressed firms, financial institutions, international companies, cyclical businesses, M&A targets, inflation environments, regulatory changes, and extreme market conditions
+- Each scenario includes input data, calculations, catalysts, and outcomes to demonstrate flexibility across financial situations
+
+*
+
+## Decision
+
+Expand the threshold-based scoring functions subtask with comprehensive examples covering all possible investment scenarios and catalysts
+
+*
+
+## Rationale
+
+To provide detailed guidance for implementing automated scoring systems that handle diverse investment situations, ensuring the plan supports institutional-grade decision frameworks with objective, threshold-driven investment recommendations.
+
+*
+
+## Implementation Details
+
+- Added comprehensive context explaining scoring functions' role in quantitative investment decisions
+- Included detailed explanations of threshold libraries, scoring algorithms, and composite rating systems
+- Provided Python code example with ThresholdScorer class featuring industry adjustments and weighted scoring
+- Developed 10 scenario examples covering: blue-chip companies, growth stocks, value traps, distressed firms, cyclical businesses, financial institutions, international companies, small caps, dividend aristocrats, and ESG leaders
+- Each scenario demonstrates how scoring adapts to different catalysts and market conditions
+
+*
+
+## Decision
+
+Expand the peer comparison algorithms subtask with comprehensive examples covering all possible comparison scenarios and catalysts
+
+*
+
+## Rationale
+
+To provide detailed guidance for implementing statistical peer comparison methods that handle diverse competitive landscapes, ensuring the plan supports sophisticated relative valuation and positioning analysis.
+
+*
+
+## Implementation Details
+
+- Added detailed context explaining peer comparison's role in contextualizing financial metrics
+- Included comprehensive explanations of statistical methods, peer selection, and normalization logic
+- Provided Python code example with PeerComparator class featuring percentile calculations, z-scores, and quartile analysis
+- Developed 10 scenario examples covering: superior performers, average companies, underperformers, outliers, cyclical industries, small peer groups, international companies, M&A impacts, ESG differentiation, and distressed sectors
+- Each scenario illustrates how peer comparisons adapt to different market catalysts and competitive dynamics
+
+*
+
+## Decision
+
+Expand the subtask for setting up API for interpretive prompts with detailed elaboration including context, explanations, and fully detailed examples covering all possible catalysts and scenarios
+
+*
+
+## Rationale
+
+To provide comprehensive guidance for implementing LLM integration that handles diverse interpretive analysis scenarios, ensuring the plan supports institutional-grade AI-driven insights and automated qualitative analysis.
+
+*
+
+## Implementation Details
+
+- Added detailed context explaining the API's role as integration layer between quantitative data and AI-driven interpretive capabilities
+- Included comprehensive explanations of API architecture, authentication, prompt engineering framework, and response processing
+- Described core components including RESTful endpoints, caching layer, monitoring systems, and scalability features
+- Developed 10 scenario examples covering: profitability anomalies, valuation opportunities, risk assessments, growth trends, competitive positioning, earnings quality concerns, cyclical recovery, M&A impacts, ESG factors, and macro event responses
+- Each scenario includes catalyst description, prompt template, LLM response example, and integration implications
+- Added implementation considerations for error handling, cost optimization, quality assurance, regulatory compliance, and scalability
+
+*
+
+## Decision
+
+Expand the decision matrix logic subtask with comprehensive examples covering all possible investment decision scenarios and catalysts
+
+*
+
+## Rationale
+
+To provide detailed guidance for implementing integrated decision frameworks that synthesize multiple analytical inputs, ensuring the plan supports sophisticated, multi-factor investment recommendations.
+
+*
+
+## Implementation Details
+
+- Added comprehensive context explaining decision matrix's role in synthesizing analytical outputs
+- Included detailed explanations of factor integration, weighting algorithms, and override mechanisms
+- Provided Python code example with DecisionMatrix class featuring composite scoring and sensitivity analysis
+- Developed 10 scenario examples covering: value investments, growth investments, quality investments, balanced cases, hold cases, sell cases, qualitative overrides, risk overrides, sensitivity adjustments, and extreme cases
+- Each scenario demonstrates how decision logic adapts to different investment styles and market catalysts

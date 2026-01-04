@@ -20,6 +20,8 @@ This file documents recurring patterns and standards used in the project.
 - **Template Method**: Endpoint templates with placeholders for API URL construction
 - **Observer Pattern**: Logging system tracks operations without interfering with core logic
 - **Strategy Pattern**: Different fetch functions for different endpoint categories
+- **API Integration Layer**: RESTful API endpoints for LLM interpretive prompt processing with authentication, caching, and response parsing
+- **Prompt Engineering Framework**: Structured template system for generating interpretive analysis prompts with contextual parameters
 
 *
 
