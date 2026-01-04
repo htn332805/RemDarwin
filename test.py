@@ -53,6 +53,10 @@ class CompFin:
         self.gross_profit = None
         self.operatingleaseliabilitynoncurrent = None
         self.stock_based_compensation = 1
+        self.template={}
+        self.template['balance_sheet']={}
+        self.template['income_statement']={}
+        self.template['cash_flow_statement']={}
         
 
         
@@ -1440,6 +1444,38 @@ def main():
         data.inventory = df.tail(1).to_dict(orient="records")[0]["inventorynet"]
         data.inventory = df.tail(1).to_dict(orient="records")[0]["inventorynet"]
         data.inventory = df.tail(1).to_dict(orient="records")[0]["inventorynet"]
+
+
+        data.template['balance_sheet']['Assets']={}
+        data.template['balance_sheet']['Liabilities']={}
+        data.template['balance_sheet']['Equity']={}
+        data.template['balance_sheet']['Assets']['cash']=df.tail(1).to_dict(orient="records")[0]["cashandcashequivalentsatcarryingvalue"]
+        data.template['balance_sheet']['Assets']['short_term_investments']=df.tail(1).to_dict(orient="records")[0]["shortterminvestments"]
+        data.template['balance_sheet']['Assets']['accounts_receivable']=df.tail(1).to_dict(orient="records")[0]["accountsreceivablenetcurrent"]
+        data.template['balance_sheet']['Assets']['inventory']=df.tail(1).to_dict(orient="records")[0]["inventorynet"]
+        data.template['balance_sheet']['Assets']['current_assets']=df.tail(1).to_dict(orient="records")[0]["assetscurrent"]
+        data.template['balance_sheet']['Assets']['total_assets']=df.tail(1).to_dict(orient="records")[0]["assets"]
+        data.template['balance_sheet']['Liabilities']['accounts_payable']=df.tail(1).to_dict(orient="records")[0]["accountspayablecurrent"]
+        data.template['balance_sheet']['Liabilities']['short_term_debt']=df.tail(1).to_dict(orient="records")[0]["debtcurrent"]
+        data.template['balance_sheet']['Liabilities']['long_term_debt']=df.tail(1).to_dict(orient="records")[0]["longtermdebtnoncurrent"]
+        data.template['balance_sheet']['Liabilities']['current_liabilities']=df.tail(1).to_dict(orient="records")[0]["liabilitiescurrent"]
+        data.template['balance_sheet']['Liabilities']['total_liabilities']=df.tail(1).to_dict(orient="records")[0]["liabilities"]
+        data.template['balance_sheet']['Equity']['total_equity']=df.tail(1).to_dict(orient="records")[0]["stockholdersequity"]
+        data.template['income_statement']={}
+        data.template['income_statement']['cost_of_revenue']=df.tail(1).to_dict(orient="records")[0]["costofgoodsandservicessold"]
+        data.template['income_statement']['gross_profit']=df.tail(1).to_dict(orient="records")[0]["grossprofit"]
+        data.template['income_statement']['revenue']=data.template['income_statement']['gross_profit']+data.template['income_statement']['cost_of_revenue']
+        data.template['income_statement']['operating_expenses']=df.tail(1).to_dict(orient="records")[0]["operatingexpenses"]
+        data.template['income_statement']['operating_income']=data.template['income_statement']['gross_profit']-data.template['income_statement']['operating_expenses']
+        data.template['income_statement']['interest_expense']=df.tail(1).to_dict(orient="records")[0]["interestexpensenonoperating"]
+        data.template['income_statement']['income_before_tax']=data.template['income_statement']['operating_income']-data.template['income_statement']['interest_expense']
+        data.template['income_statement']['income_tax_expense']=df.tail(1).to_dict(orient="records")[0]["incometaxespaidnet"]
+        data.template['income_statement']['net_income']=data.template['income_statement']['income_before_tax']-data.template['income_statement']['income_tax_expense']
+        data.template['cash_flow_statement']={}
+        data.template['cash_flow_statement']['operating_cash_flow']=df.tail(1).to_dict(orient="records")[0]["netcashprovidedbyusedinoperatingactivities"]
+        data.template['cash_flow_statement']['capital_expenditures']=df.tail(1).to_dict(orient="records")[0]["paymentstoacquirepropertyplantandequipment"]
+        data.template['cash_flow_statement']['free_cash_flow']=data.template['cash_flow_statement']['operating_cash_flow']-abs( data.template['cash_flow_statement']['capital_expenditures'])
+
 
         
         
