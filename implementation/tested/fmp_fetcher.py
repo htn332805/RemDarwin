@@ -39,7 +39,7 @@ import os  # Operating system interfaces for environment and file operations
 import requests  # HTTP library for API requests to FMP
 import csv  # CSV file handling for data export
 import json  # JSON parsing for API responses and data manipulation
-
+import time
 # Third-party libraries
 from dotenv import load_dotenv  # Loading environment variables from .env files for secure configuration
 
@@ -224,6 +224,7 @@ def fetch_data(url):
                               otherwise None.
     """
     print(f"Fetching data from: {url}")
+    #time.sleep(5)
     try:
         response = requests.get(url)
         if response.status_code == 200:
@@ -270,6 +271,7 @@ def fetch_income_statement(ticker, api_key, period):
         This function integrates with the overall fmp_fetcher system by utilizing the ENDPOINTS['income_statement']
         URL template and the fetch_data helper function, promoting code reusability and maintainability.
     """
+    #time.sleep(5)
     url = ENDPOINTS['income_statement'][period].format(ticker=ticker, apikey=api_key)
     return fetch_data(url)
 
@@ -310,6 +312,7 @@ def fetch_balance_sheet(ticker, api_key, period):
         Part of the fmp_fetcher module's fetch functions, using ENDPOINTS['balance_sheet'] and fetch_data
         for modular, maintainable API interactions.
     """
+    #time.sleep(5)
     url = ENDPOINTS['balance_sheet'][period].format(ticker=ticker, apikey=api_key)
     return fetch_data(url)
 
@@ -348,6 +351,7 @@ def fetch_cash_flow_statement(ticker, api_key, period):
         Integrates with the fmp_fetcher system via ENDPOINTS['cash_flow_statement'] and fetch_data,
         supporting modular financial data retrieval.
     """
+    #time.sleep(5)
     url = ENDPOINTS['cash_flow_statement'][period].format(ticker=ticker, apikey=api_key)
     return fetch_data(url)
 
@@ -383,6 +387,7 @@ def fetch_ratios(ticker, api_key, period):
     Integration:
         Part of the period-dependent fetch functions, using ENDPOINTS and fetch_data for consistency.
     """
+    #time.sleep(5)
     url = ENDPOINTS['ratios'][period].format(ticker=ticker, apikey=api_key)
     return fetch_data(url)
 
@@ -415,6 +420,7 @@ def fetch_enterprise_values(ticker, api_key, period):
     Integration:
         Contributes to the suite of fetch functions, maintaining system consistency.
     """
+    #time.sleep(5)
     url = ENDPOINTS['enterprise_values'][period].format(ticker=ticker, apikey=api_key)
     return fetch_data(url)
 
@@ -446,6 +452,7 @@ def fetch_financial_growth(ticker, api_key, period):
     Integration:
         Part of the fetch functions suite.
     """
+    #time.sleep(5)
     url = ENDPOINTS['financial_growth'][period].format(ticker=ticker, apikey=api_key)
     return fetch_data(url)
 
@@ -1776,6 +1783,7 @@ def main():
 
     for category in period_categories:
         logging.info("Fetching %s data for period %s...", category, period)
+        time.sleep(5)
         try:
             fetch_func = globals()[f'fetch_{category}']
             data = fetch_func(ticker, api_key, period)
@@ -1820,6 +1828,7 @@ def main():
 
     for category in non_period_categories:
         logging.info("Fetching %s data...", category)
+        time.sleep(5)
         try:
             fetch_func = globals()[f'fetch_{category}']
             data = fetch_func(ticker, api_key)
@@ -1909,6 +1918,7 @@ def main():
     insider_variants = ['all', 'purchases', 'sales']
     for variant in insider_variants:
         logging.info("Fetching insider trading %s data...", variant)
+        time.sleep(5)
         try:
             fetch_func = globals()[f'fetch_insider_trading_{variant}']
             data = fetch_func(ticker, api_key)
