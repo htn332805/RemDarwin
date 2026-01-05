@@ -239,3 +239,136 @@ To provide detailed guidance for implementing dynamic parameter adjustment syste
 - Developed 10 scenario examples covering: bull markets, bear markets, inflation/deflation, sector rotations, high/low volatility, interest rate shocks, and crisis responses
 - Each scenario includes catalyst description, threshold/weight adjustments, rationale, and backtesting validation results
 - Added institutional parameter management protocols with machine learning optimization and quarterly review processes
+
+*
+
+## Decision
+
+Expand "Attribution analysis: Premium decay vs underlying movement" subtask in selling_option_subtask8.md
+
+*
+
+## Rationale
+
+To provide comprehensive guidance for implementing performance attribution analysis that decomposes options strategy returns into premium decay and underlying movement components, ensuring the plan supports detailed performance monitoring and strategy refinement across all market conditions and catalysts.
+
+*
+
+## Implementation Details
+
+Added detailed context explaining attribution's role in performance evaluation, technical implementation with Python/pandas framework, comprehensive explanations of attribution components, detailed example with portfolio breakdown, and 12 scenario examples covering normal markets, volatility spikes, earnings, sectors, rates, macro events, rebalancing, holidays, regulations, extreme events, dividends, and expirations.
+
+*
+
+## Decision
+
+Implement comprehensive options database schema with advanced indexing for institutional-grade options data storage and retrieval
+
+*
+
+## Rationale
+
+To provide scalable, high-performance data persistence for systematic options trading strategies across all market conditions and catalysts, ensuring reliable storage of options chains, Greeks, and historical data for backtesting and live trading.
+
+*
+
+## Implementation Details
+
+- Designed PostgreSQL schema with partitioning by expiration date and subpartitioning by symbol for optimal query performance
+- Implemented composite indexes for Greeks-based screening, volatility surface analysis, and time-series queries
+- Added data validation framework with quality scoring and gap-filling capabilities
+- Created scenario-specific implementations for normal markets, volatility spikes, earnings season, holidays, sector events, and portfolio backtesting
+- Integrated with existing options selling framework components including quantitative screening, risk management, and execution systems
+
+*
+
+## Decision
+
+Expand the subtask "Historical performance heatmaps" subtask in selling_option_subtask8.md
+
+*
+
+## Rationale
+
+To provide comprehensive guidance for implementing historical performance heatmaps that handle diverse market conditions, ensuring the plan supports institutional-grade performance visualization with deep insights across all catalysts and scenarios.
+
+*
+
+## Implementation Details
+
+Added detailed context explaining heatmaps' role in performance visualization, comprehensive technical implementation with Python/pandas framework, detailed explanations of heatmap types, detailed example with monthly returns heatmap table, and 12 scenario examples covering normal markets, volatility spikes, earnings season, sector events, interest rate changes, macro events, portfolio rebalancing, holiday periods, regulatory changes, extreme events, dividend season, and options expiration clustering.
+*
+
+## Decision
+
+Implement weekly Expected Shortfall (ES) stress testing for options portfolio risk management
+
+*
+
+## Rationale
+
+Expected Shortfall provides superior tail risk measurement compared to VaR for asymmetric options strategies, enabling better capital preservation during extreme market events. Weekly frequency balances options' rapid dynamics with practical monitoring costs, allowing proactive risk adjustments before significant losses occur.
+
+*
+
+## Implementation Details
+
+- ES calculated at 97.5% and 99% confidence levels using Monte Carlo simulation with 10,000+ scenarios
+- Weekly testing every Friday with 20-30 predefined stress scenarios including historical crises and hypothetical events
+- Automated alerts when ES exceeds 5% of portfolio value, triggering position reductions
+- Integration with existing Greeks monitoring and VaR calculations for comprehensive risk framework
+*
+
+## Decision
+
+Expand the subtask "Brokerage API integration with authentication" in selling_option_subtask7.md
+
+*
+
+## Rationale
+
+To provide comprehensive guidance for implementing secure brokerage API integration that handles diverse execution scenarios, ensuring the plan supports institutional-grade automated trading with robust authentication and error handling.
+
+*
+
+## Implementation Details
+
+Added detailed context explaining the API's role in trade execution, comprehensive technical implementation with OAuth authentication, Python code example for BrokerageAPIClient class, and 10 scenario examples covering normal operations, high volatility, outages, authentication failures, regulatory events, network issues, rate limiting, multi-brokerage diversification, maintenance windows, and geographic restrictions.
+
+*
+
+## Decision
+
+Expand the subtask "Position reconciliation: Daily portfolio sync" in selling_option_subtask7.md
+
+*
+
+## Rationale
+
+To provide comprehensive guidance for implementing automated position reconciliation that handles diverse settlement scenarios, ensuring the plan supports institutional-grade portfolio management with accurate tracking across all market conditions and catalysts.
+
+*
+
+## Implementation Details
+
+Added detailed context explaining position reconciliation's role in maintaining portfolio accuracy, comprehensive technical implementation with PositionReconciler class, Python code example for reconciliation logic, and 10 scenario examples covering normal syncs, exercise/assignment, corporate actions, dividends, trading errors, mergers, tax assignments, market halts, and settlement failures.
+
+*
+
+## Decision
+
+Expand the subtask "Custom alerting based on user preferences" in selling_option_subtask8.md
+
+*
+
+## Rationale
+
+To provide comprehensive guidance for implementing custom alerting systems that handle diverse user preferences and market conditions, ensuring the analytics dashboard supports institutional-grade monitoring with timely notifications across all catalysts and scenarios.
+
+*
+
+## Implementation Details
+
+Added detailed context explaining custom alerting's role as the nervous system of the analytics dashboard, comprehensive technical implementation with real-time data pipelines, rule engines, and multi-channel notifications, detailed explanations of alert types and protocols, detailed example with user configuration dashboard and alert history, and 12 scenario examples covering normal markets, volatility spikes, earnings season, sector events, interest rate changes, macro events, portfolio rebalancing, holiday periods, regulatory changes, extreme events, dividend season, and options expiration clustering.
+
+*

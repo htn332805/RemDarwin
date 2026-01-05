@@ -20,6 +20,9 @@ Create a comprehensive CLI tool for fetching financial data from Financial Model
 - Displays API URLs for manual verification
 - Comprehensive error handling and logging
 - Technical indicators combined in single CSV file
+- Options analysis framework for selling covered calls and cash-secured puts
+- Rule-based quantitative screening with LLM interpretive capabilities
+- Automated trade identification and risk management
 
 *
 
@@ -34,3 +37,5 @@ Create a comprehensive CLI tool for fetching financial data from Financial Model
 - Error handling with graceful failure and continuation
 
 2026-01-04 22:47:19 - Expanded subtask 7.3 "Implement monitoring and alert systems" in fundamental_analysis_plan.md with detailed elaboration including context, explanations, and comprehensive example covering all possible catalysts and scenarios.
+2026-01-05 03:54:00 - Expanded "Expected shortfall: Weekly stress testing" subtask in selling_option_subtask3.md with detailed elaboration including context, explanations, and comprehensive example covering all possible catalysts and scenarios.
+2026-01-05 06:25:00 - Expanded "Custom alerting based on user preferences" subtask in selling_option_subtask8.md with detailed elaboration including context, explanations, and comprehensive example covering all possible catalysts and scenarios.
