@@ -5,3 +5,8 @@
 - [2026-01-05 05:32:44] - Expanded position reconciliation daily portfolio sync subtask in selling_option_subtask7.md
 - [2026-01-05T06:07:29] - Completed expansion of trade-by-trade analysis subtask in selling_option_subtask8.md
 - [2026-01-05T06:25:00] - Expanded "Custom alerting based on user preferences" subtask in selling_option_subtask8.md with detailed elaboration including context, explanations, and comprehensive example covering all possible catalysts and scenarios
+- [2026-01-06T00:17:40] - Added CLI support to yfinance_options.py with -t/--ticker argument for specifying stock symbol, replacing hardcoded 'AAPL' and preventing IndexError in sample display
+- [2026-01-06T00:28:30] - Fixed option_filter.py delta filter to use abs(contract.delta) < min_delta to properly handle negative deltas for put options
+- [2026-01-06T00:34:30] - Modified option_filter.py to filter contracts based on FilterConfig, ignoring parameters set to None
+- [2026-01-06T00:37:35] - Added -o/--option-type argument to filter only calls, puts, or both
+- [2026-01-06 00:57:49] - Fixed option_filter.py to implement missing premium_spread filter, now filtering options with bid-ask spread > 5%

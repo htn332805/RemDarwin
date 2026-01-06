@@ -61,6 +61,13 @@ This file tracks the project's progress using a task list format.
 - ✅ [2026-01-05T06:12:45] - Expanded "Attribution analysis: Premium decay vs underlying movement" subtask in selling_option_subtask8.md with detailed elaboration including context, explanations, and comprehensive example covering all possible catalysts and scenarios
 - ✅ [2026-01-05T06:22:16] - Expanded "Historical performance heatmaps" subtask in selling_option_subtask8.md with detailed elaboration including context, explanations, and comprehensive example covering all possible catalysts and scenarios
 - ✅ [2026-01-05T06:25:00] - Expanded "Custom alerting based on user preferences" subtask in selling_option_subtask8.md with detailed elaboration including context, explanations, and comprehensive example covering all possible catalysts and scenarios
+- ✅ [2026-01-05T18:45:55] - Debugged yfinance_options.py: Resolved yfinance compatibility issue by upgrading Python to 3.10+ using pyenv, fixed dataclass missing fields, and added NaN handling for option data parsing
+- ✅ [2026-01-05 20:05:05] - Updated put return calculations in yfinance_options.py to percentages: put_return_on_risk = (bid_price / risk) * 100, put_return_on_capital = (bid_price / strike_price) * 100
+- ✅ [2026-01-05T20:57:11] - Modified save_to_database method in yfinance_options.py to implement partitioning by expiration date with separate tables options_YYYY_MM_DD, added indexes on symbol, expiration, strike, delta, gamma, theta, vega, rho, and updated insertion to appropriate partitioned table
+- ✅ [2026-01-06T00:17:40] - Added CLI support to yfinance_options.py with -t/--ticker argument for specifying stock symbol, replaced hardcoded 'AAPL' with dynamic input, and fixed sample display to use index 0 to prevent IndexError
+- ✅ [2026-01-06T00:28:30] - Fixed option_filter.py delta filter bug where min_delta filter didn't work for put options due to negative deltas; changed to abs(contract.delta) < min_delta
+- ✅ [2026-01-06T00:34:30] - Modified option_filter.py to filter contracts based on FilterConfig, ignoring parameters set to None; updated CLI to accept filter parameters and build config accordingly
+- ✅ [2026-01-06T00:37:35] - Added -o/--option-type CLI argument to filter only calls (-o call), puts (-o put), or both (-o both, default)
 
 *
 
