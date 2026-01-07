@@ -28,12 +28,175 @@ class FilterConfig:
     max_theta: float = None #1.0
     min_volume: int = 100 #0
     premium_spread: float = 0.05
+    liquidity_threshold: float = 0.5  # Minimum liquidity score (0-1)
 
 class OptionFilter:
     def __init__(self, db_path: str, config: Optional[FilterConfig] = None):
         self.db_path = db_path
         self.config = config or FilterConfig()
         self.greek_calculator = GreekCalculator()
+
+    def calculate_spread_metrics(self, contract: OptionContract) -> tuple:
+        """Calculate raw spread and spread percentage using midpoint method.
+        Returns (raw_spread, spread_pct) or (None, None) if insufficient data."""
+        if contract.bid <= 0 or contract.ask <= 0:
+            return None, None
+        raw_spread = contract.ask - contract.bid
+        midpoint = (contract.ask + contract.bid) / 2
+        spread_pct = raw_spread / midpoint * 100
+        return raw_spread, spread_pct
+
+    def calculate_liquidity_score(self, contract: OptionContract, max_oi: int, max_vol: int) -> float:
+        """Calculate composite liquidity score for a contract.
+        Scores from 0 (illiquid) to 1 (highly liquid)."""
+        if max_oi == 0 or max_vol == 0:
+            return 0.0
+
+        # Open interest score: normalized to max in chain
+        oi_score = min(contract.open_interest / max_oi, 1.0)
+
+        # Volume score: normalized to max in chain
+        vol_score = min(contract.volume / max_vol, 1.0)
+
+        # Spread score: inverse of spread percentage
+        _, spread_pct = self.calculate_spread_metrics(contract)
+        if spread_pct is None:
+            spread_score = 0.0  # No spread data
+        else:
+            spread_score = 1 / (1 + spread_pct / 100)  # Normalize to 0-1
+
+        # Market impact estimate: spread * sqrt(volume) / OI
+        if contract.open_interest > 0 and spread_pct is not None:
+            impact = (spread_pct / 100) * (contract.volume ** 0.5) / contract.open_interest
+            impact_score = max(0, 1 - impact)  # Higher impact, lower score
+        else:
+            impact_score = 0.0
+
+        # Composite score with weights
+        liquidity_score = (0.3 * oi_score) + (0.3 * vol_score) + (0.2 * spread_score) + (0.2 * impact_score)
+        return round(liquidity_score, 3)
+
+    def generate_liquidity_report(self):
+        """Task 2.5: Generate liquidity coverage report across option chains."""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+
+            # Get all partitioned tables
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'options_%'")
+            tables = [row[0] for row in cursor.fetchall()]
+
+            total_contracts = 0
+            liquid_contracts = 0
+            coverage_stats = []
+
+            for table in tables:
+                cursor.execute(f"SELECT COUNT(*), COUNT(CASE WHEN liquidity_score >= 0.7 THEN 1 END) FROM {table} WHERE validated = 'True' OR validated = '1'")
+                count_total, count_liquid = cursor.fetchone()
+                total_contracts += count_total
+                liquid_contracts += count_liquid
+                coverage = (count_liquid / count_total * 100) if count_total > 0 else 0
+                coverage_stats.append(f"{table}: {count_liquid}/{count_total} ({coverage:.1f}%)")
+
+            overall_coverage = (liquid_contracts / total_contracts * 100) if total_contracts > 0 else 0
+
+            report = f"""
+Liquidity Coverage Report for {self.db_path}
+==========================================
+Total Contracts: {total_contracts}
+Highly Liquid (>=0.7): {liquid_contracts}
+Overall Coverage: {overall_coverage:.1f}%
+
+Per Expiration:
+{chr(10).join(coverage_stats)}
+"""
+            print(report)
+
+        except Exception as e:
+            logger.error(f"Error generating liquidity report: {e}")
+        finally:
+            if 'conn' in locals():
+                conn.close()
+
+    def update_spread_data_in_db(self):
+        """Task 1.3: Add spread columns to database tables and populate with calculated data."""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+
+            # Get all partitioned tables
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'options_%'")
+            tables = [row[0] for row in cursor.fetchall()]
+
+            for table in tables:
+                # Add columns if they don't exist
+                try:
+                    cursor.execute(f"ALTER TABLE {table} ADD COLUMN raw_spread REAL")
+                except sqlite3.OperationalError:
+                    pass  # Column might already exist
+                try:
+                    cursor.execute(f"ALTER TABLE {table} ADD COLUMN bid_ask_spread_pct REAL")
+                except sqlite3.OperationalError:
+                    pass
+                try:
+                    cursor.execute(f"ALTER TABLE {table} ADD COLUMN bid_size INTEGER")
+                except sqlite3.OperationalError:
+                    pass
+                try:
+                    cursor.execute(f"ALTER TABLE {table} ADD COLUMN ask_size INTEGER")
+                except sqlite3.OperationalError:
+                    pass
+                try:
+                    cursor.execute(f"ALTER TABLE {table} ADD COLUMN liquidity_score REAL")
+                except sqlite3.OperationalError:
+                    pass
+
+                # Get max OI and max volume for liquidity calculation
+                cursor.execute(f"SELECT MAX(open_interest), MAX(volume) FROM {table}")
+                max_oi, max_vol = cursor.fetchone()
+                max_oi = int(max_oi) if max_oi else 0
+                max_vol = int(max_vol) if max_vol else 0
+
+                # Update existing rows with calculated spreads and liquidity
+                cursor.execute(f"""
+                    SELECT ROWID, bid, ask, open_interest, volume FROM {table}
+                    WHERE CAST(bid AS REAL) > 0 AND CAST(ask AS REAL) > 0 AND (raw_spread IS NULL OR bid_ask_spread_pct IS NULL OR liquidity_score IS NULL)
+                """)
+                rows = cursor.fetchall()
+                for rowid, bid, ask, oi, vol in rows:
+                    bid_val = float(bid) if bid and bid != 'None' else 0.0
+                    ask_val = float(ask) if ask and ask != 'None' else 0.0
+                    oi_val = int(oi) if oi and oi != 'None' else 0
+                    vol_val = int(vol) if vol and vol != 'None' else 0
+
+                    if bid_val > 0 and ask_val > 0:
+                        raw_spread = ask_val - bid_val
+                        midpoint = (ask_val + bid_val) / 2
+                        spread_pct = raw_spread / midpoint * 100
+
+                        # Create a contract-like object for liquidity calc
+                        class TempContract:
+                            def __init__(self, b, a, oi, vol):
+                                self.bid = b
+                                self.ask = a
+                                self.open_interest = oi
+                                self.volume = vol
+
+                        temp_contract = TempContract(bid_val, ask_val, oi_val, vol_val)
+                        liquidity_score = self.calculate_liquidity_score(temp_contract, max_oi, max_vol)
+
+                        cursor.execute(f"""
+                            UPDATE {table} SET raw_spread = ?, bid_ask_spread_pct = ?, liquidity_score = ? WHERE ROWID = ?
+                        """, (raw_spread, spread_pct, liquidity_score, rowid))
+
+            conn.commit()
+            logger.info(f"Updated spread data for {len(tables)} tables in {self.db_path}")
+
+        except Exception as e:
+            logger.error(f"Error updating spread data in DB: {e}")
+        finally:
+            if 'conn' in locals():
+                conn.close()
 
     def _fetch_options_from_db(self) -> List[OptionContract]:
         """Fetch all validated options from SQLite database."""
@@ -101,12 +264,13 @@ class OptionFilter:
     def option_passes_filters(self, contract: OptionContract, market_regime: str) -> bool:
         """Apply quantitative filters based on FilterConfig, ignoring None parameters."""
         # Bid-ask spread filter: Ensure spread is less than premium_spread percentage
-        if contract.bid > 0:
-            spread_pct = (contract.ask - contract.bid) / contract.bid
-            if spread_pct > self.config.premium_spread:
+        # Task 1.2: Calculate using (Ask - Bid) / Midpoint Price × 100
+        if contract.bid > 0 and contract.ask > 0:
+            midpoint = (contract.ask + contract.bid) / 2
+            spread_pct = (contract.ask - contract.bid) / midpoint * 100
+            if spread_pct > self.config.premium_spread * 100:
                 return False
-        elif contract.ask > 0:  # If bid is 0 but ask > 0, still check
-            return False
+        # If bid is 0 or ask is 0, skip spread check
 
         # Custom filters
         if self.config.min_delta is not None and abs(contract.delta) < self.config.min_delta:

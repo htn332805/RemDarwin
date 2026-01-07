@@ -262,6 +262,29 @@ Added detailed context explaining attribution's role in performance evaluation, 
 
 ## Decision
 
+Add comprehensive error handling and logging to IV_Surfaces.py using Python logging module
+
+*
+
+## Rationale
+
+Ensures robustness of the IV surface generation tool by handling database connection failures, data processing errors, plotting issues, and file saving problems with appropriate logging for troubleshooting and monitoring.
+
+*
+
+## Implementation Details
+
+- Added logging module import and configured INFO level logging with timestamps
+- Wrapped database operations in retrieve_iv_data with try-except, logging connection success, table discovery, row processing stats, and invalid row warnings
+- Added error handling to process_iv_for_surface with logging for data processing steps and interpolation counts
+- Enhanced plot_iv_surface with error handling, charts directory creation, and PNG save confirmation logging
+- Wrapped main execution in try-except for overall error handling
+- Maintained graceful error handling while providing detailed logging for all major operations
+
+*
+
+## Decision
+
 Implement comprehensive options database schema with advanced indexing for institutional-grade options data storage and retrieval
 
 *
@@ -372,3 +395,24 @@ To provide comprehensive guidance for implementing custom alerting systems that 
 Added detailed context explaining custom alerting's role as the nervous system of the analytics dashboard, comprehensive technical implementation with real-time data pipelines, rule engines, and multi-channel notifications, detailed explanations of alert types and protocols, detailed example with user configuration dashboard and alert history, and 12 scenario examples covering normal markets, volatility spikes, earnings season, sector events, interest rate changes, macro events, portfolio rebalancing, holiday periods, regulatory changes, extreme events, dividend season, and options expiration clustering.
 
 *
+
+## Decision
+
+Add --dash option to IV_Surfaces.py for interactive 3D surface visualization using Dash and Plotly
+
+*
+
+## Rationale
+
+Provides interactive web-based visualization with zoom, rotate, and pan capabilities for better analysis of implied volatility surfaces, complementing the static PNG output.
+
+*
+
+## Implementation Details
+
+- Added dash and plotly to requirements.txt
+- Imported dash, html, dcc from dash, and plotly.graph_objects as go
+- Added --dash action='store_true' argument to argparse
+- Created create_dash_app function that converts matplotlib data to Plotly Surface plot with proper axis formatting (currency for strikes, date labels for expirations)
+- Modified main() to conditionally launch Dash app on local server when --dash is specified, otherwise saves PNG as before
+- Added comprehensive error handling and logging for the new functionality

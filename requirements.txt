@@ -16,7 +16,10 @@ html5lib
 icecream
 idna
 importlib_resources
+Jinja2
+jsonschema
 kiwisolver
+requests
 lxml
 matplotlib
 multitasking
@@ -46,3 +49,8 @@ webencodings
 websockets
 yfinance
 zipp
+dash
+plotly
+streamlit
+prometheus_client
+jsonschema

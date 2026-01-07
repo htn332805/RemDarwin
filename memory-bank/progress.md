@@ -7,6 +7,9 @@ This file tracks the project's progress using a task list format.
 
 ## Completed Tasks
 
+- ✅ [2026-01-06T04:47:00] - Fixed Dash API compatibility issue by replacing deprecated app.run_server with app.run method
+- ✅ [2026-01-06T04:44:00] - Added --dash option to IV_Surfaces.py for interactive Dash web app visualization of IV surfaces with Plotly 3D surface plots, including zoom, rotate, pan features, and proper labels running on local server
+- ✅ [2026-01-06T04:31:46] - Added comprehensive error handling and logging to IV_Surfaces.py
 - ✅ Create main script file (`fmp_fetcher.py`)
 - ✅ Implement CLI argument parsing
 - ✅ Implement configuration loading (.env for API key)
