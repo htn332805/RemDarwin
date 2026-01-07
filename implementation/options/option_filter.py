@@ -7,7 +7,7 @@ import pandas as pd
 import argparse
 
 # Import from yfinance_options.py
-from yfinance_options import GreekCalculator, OptionContract
+from .yfinance_options import GreekCalculator, OptionContract
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
