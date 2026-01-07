@@ -398,6 +398,28 @@ Added detailed context explaining custom alerting's role as the nervous system o
 
 ## Decision
 
+Implement on-demand CLI-based option chain updates instead of real-time 5-minute intervals
+
+*
+
+## Rationale
+
+Reduces API costs, simplifies infrastructure requirements, and gives users control over when to refresh data. Real-time updates would require complex async infrastructure, WebSocket connections, and continuous API polling which adds significant complexity and cost for limited benefit in systematic options trading context.
+
+*
+
+## Implementation Details
+
+- Changed from asyncio-based real-time polling to CLI command pattern
+- Users manually trigger option chain updates via command line when needed
+- Maintains data freshness while giving users control over API usage
+- Simplifies system architecture by removing continuous background processes
+- Reduces infrastructure complexity and operational costs
+
+*
+
+## Decision
+
 Add --dash option to IV_Surfaces.py for interactive 3D surface visualization using Dash and Plotly
 
 *
